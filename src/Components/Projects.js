@@ -3,9 +3,6 @@ import Footer from './Footer'
 
 export default function Projects() {
     useEffect(() => {
-            if (CSS.supports("animation-timeline", "view()")) {
-              return; // Don't run IntersectionObserver if animation-timeline is supported
-            }
         
             const observer = new IntersectionObserver(
               (entries) => {
@@ -17,7 +14,7 @@ export default function Projects() {
                   }
                 });
               },
-              { threshold: 0.3 } // Adjust visibility trigger (0 = when barely visible, 1 = fully visible)
+              { threshold: 0.4 } // Adjust visibility trigger (0 = when barely visible, 1 = fully visible)
             );
         
             const items = document.querySelectorAll(".websites .website");
