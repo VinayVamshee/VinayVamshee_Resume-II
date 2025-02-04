@@ -640,6 +640,19 @@
   animation-timeline: view();
   animation-range: entry 0% cover 40%;
 }
+@supports not (animation-timeline: view()) {
+  .skills ul li {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .skills ul li.show {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 
 .skills ul li .image {
   overflow: hidden;
@@ -954,6 +967,19 @@
     animation-timeline: view();
     animation-range: entry 0% cover 30%;
   }
+  @supports not (animation-timeline: view()) {
+    .websites .website{
+      opacity: 0;
+      transform: scale(0.5);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+  
+    .websites .website.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
 }
 
 @media (max-width: 680px) {
@@ -965,6 +991,19 @@
     animation-timeline: view();
     animation-range: entry 0% cover 40%; 
   }
+  @supports not (animation-timeline: view()) {
+    .education ul li {
+      opacity: 0;
+      transform: scale(0.5);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+  
+    .education ul li.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
   .about {
     padding: 0px;
   }

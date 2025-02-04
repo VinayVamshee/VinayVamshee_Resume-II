@@ -1,7 +1,33 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Footer from './Footer'
 
 export default function About() {
+    useEffect(() => {
+        if (CSS.supports("animation-timeline", "view()")) {
+          return; // Don't run IntersectionObserver if animation-timeline is supported
+        }
+    
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+              } else {
+                entry.target.classList.remove("show"); // Remove if you want elements to re-animate on scroll
+              }
+            });
+          },
+          { threshold: 0.3 } // Adjust visibility trigger (0 = when barely visible, 1 = fully visible)
+        );
+    
+        const items = document.querySelectorAll(".skills ul li",".education ul li");
+        items.forEach((item) => observer.observe(item));
+    
+        return () => {
+          items.forEach((item) => observer.unobserve(item));
+        };
+      }, []);
+    
     return (
         <div id='about' className='about'>
 

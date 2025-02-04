@@ -8,6 +8,8 @@ import Projects from './Components/Projects';
 
 
 function App() {
+  console.log(CSS.supports("animation-timeline", "view()"));
+
   return (
     <div className="App">
       <Router>
