@@ -1,39 +1,41 @@
 import React, { useEffect } from 'react'
 import Footer from './Footer'
+import Brilliant from './Images/Brilliant-Image.jpg'
+import Vtop from './Images/Vtop-Image.png'
 
 export default function About() {
     useEffect(() => {
-        
-    
+
+
         const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-              } else {
-                entry.target.classList.remove("show"); // Remove if you want elements to re-animate on scroll
-              }
-            });
-          },
-          { threshold: 0.4 } // Adjust visibility trigger (0 = when barely visible, 1 = fully visible)
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    } else {
+                        entry.target.classList.remove("show"); // Remove if you want elements to re-animate on scroll
+                    }
+                });
+            },
+            { threshold: 0.4 } // Adjust visibility trigger (0 = when barely visible, 1 = fully visible)
         );
-    
-        const items = document.querySelectorAll(".skills ul li",".education ul li");
+
+        const items = document.querySelectorAll(".skills ul li", ".education ul li");
         items.forEach((item) => observer.observe(item));
-    
+
         return () => {
-          items.forEach((item) => observer.unobserve(item));
+            items.forEach((item) => observer.unobserve(item));
         };
-      }, []);
-    
+    }, []);
+
     return (
         <div id='about' className='about'>
 
             <div className='description'>
                 <div className='heading'>Who I Am and What I Do</div>
-                Hello! I'm Pechetti Vinay Vamshee, a Computer Science Engineering student at VIT Vellore.<br/><br/> I specialize in full-stack development with a strong foundation in Java, Data Structures, Algorithms, and Object-Oriented Programming. My experience extends to the MERN stack, where I have hands-on expertise in both front-end and back-end development, including MongoDB.
+                Hello! I'm Pechetti Vinay Vamshee, a Computer Science Engineering student at VIT Vellore.<br /><br /> I specialize in full-stack development with a strong foundation in Java, Data Structures, Algorithms, and Object-Oriented Programming. My experience extends to the MERN stack, where I have hands-on expertise in both front-end and back-end development, including MongoDB.
                 I'm passionate about technology and always strive to stay updated with new trends and advancements. Several of my projects are live, with one attracting 100+ daily visitors and 5000 to 10,000 views per month. I take pride in my discipline, consistency, and time management skills, which have allowed me to achieve these milestones. I'm always eager to learn and grow, and I'm excited to continue exploring innovative technologies.
-                <br /><br/>
+                <br /><br />
                 Feel free to explore my work and get in touch with me through the contact section.
             </div>
 
@@ -41,7 +43,7 @@ export default function About() {
                 <div className='heading'>Educational Background</div>
                 <br />
                 <ul>
-                    <li style={{animationDelay: '0.1s'}}>
+                    <li style={{ animationDelay: '0.1s' }}>
                         <label>Vellore Institute of Technology, Vellore</label>
                         <div className='Academic'>
                             <div className='Academic-detail'>
@@ -50,12 +52,12 @@ export default function About() {
                                 <p>CGPA - 8.08</p>
                             </div>
                             <div className='Academic-img'>
-                                <img src='https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/Vellore_Institute_of_Technology_seal_2017.svg/1200px-Vellore_Institute_of_Technology_seal_2017.svg.png' alt='...'/>
+                            <img src={Vtop} alt='...' />
                             </div>
 
                         </div>
                     </li>
-                    <li style={{animationDelay: '0.2s'}}>
+                    <li style={{ animationDelay: '0.2s' }}>
                         <label>Brilliant Public School, Bilaspur</label>
                         <div className='Academic'>
                             <div className='Academic-detail'>
@@ -64,12 +66,12 @@ export default function About() {
                                 <p>Percentage - 80.4%</p>
                             </div>
                             <div className='Academic-img'>
-                                <img src='https://scontent.fmaa2-4.fna.fbcdn.net/v/t39.30808-6/309798914_472267424919730_1155259854718216907_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=jleUyzGwSmAQ7kNvgFjTXLO&_nc_oc=AdiLTcBZhkRkkO_X_ufBtdS7hCLOAg9Dta1T2h2qg4GMZQU1-lbKsxeHahYIx-hfGVersJG4ibmBaQMJbV8SqTr0&_nc_zt=23&_nc_ht=scontent.fmaa2-4.fna&_nc_gid=A_udl-gafbRfsrnoBO-gfyT&oh=00_AYDy_MmpGZL_udCaO-skOlMYhAWp8Wx75iHf2Vo-D3ueNA&oe=67A7A4E0' alt='...'/>
+                                <img src={Brilliant} alt='...' />
                             </div>
 
                         </div>
                     </li>
-                    <li style={{animationDelay: '0.3s'}}>
+                    <li style={{ animationDelay: '0.3s' }}>
                         <label>Brilliant Public School, Bilaspur</label>
                         <div className='Academic'>
                             <div className='Academic-detail'>
@@ -78,7 +80,7 @@ export default function About() {
                                 <p>Percentage - 84%</p>
                             </div>
                             <div className='Academic-img'>
-                                <img src='https://scontent.fmaa2-4.fna.fbcdn.net/v/t39.30808-6/309798914_472267424919730_1155259854718216907_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=jleUyzGwSmAQ7kNvgFjTXLO&_nc_oc=AdiLTcBZhkRkkO_X_ufBtdS7hCLOAg9Dta1T2h2qg4GMZQU1-lbKsxeHahYIx-hfGVersJG4ibmBaQMJbV8SqTr0&_nc_zt=23&_nc_ht=scontent.fmaa2-4.fna&_nc_gid=A_udl-gafbRfsrnoBO-gfyT&oh=00_AYDy_MmpGZL_udCaO-skOlMYhAWp8Wx75iHf2Vo-D3ueNA&oe=67A7A4E0' alt='...'/>
+                                <img src={Brilliant} alt='...' />
                             </div>
 
                         </div>
@@ -115,7 +117,7 @@ export default function About() {
                 </ul>
             </div>
 
-            <Footer/>
+            <Footer />
         </div>
     )
 }
