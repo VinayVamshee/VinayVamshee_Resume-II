@@ -1,60 +1,40 @@
 import React, { useEffect } from 'react'
 import Footer from './Footer'
+import CCC from './Images/CCC-Page.png'
+import IRWSI from './Images/IRWSI-Page.png'
+import RRR from './Images/RRR-Page.png'
+import VTS from './Images/VTS-Page.png'
 
 export default function Projects() {
     useEffect(() => {
-        
-            const observer = new IntersectionObserver(
-              (entries) => {
+
+        const observer = new IntersectionObserver(
+            (entries) => {
                 entries.forEach((entry) => {
-                  if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                  } else {
-                    entry.target.classList.remove("show"); // Remove if you want elements to re-animate on scroll
-                  }
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    } else {
+                        entry.target.classList.remove("show"); // Remove if you want elements to re-animate on scroll
+                    }
                 });
-              },
-              { threshold: 0.4 } // Adjust visibility trigger (0 = when barely visible, 1 = fully visible)
-            );
-        
-            const items = document.querySelectorAll(".websites .website");
-            items.forEach((item) => observer.observe(item));
-        
-            return () => {
-              items.forEach((item) => observer.unobserve(item));
-            };
-          }, []);
+            },
+            { threshold: 0.4 } // Adjust visibility trigger (0 = when barely visible, 1 = fully visible)
+        );
+
+        const items = document.querySelectorAll(".websites .website");
+        items.forEach((item) => observer.observe(item));
+
+        return () => {
+            items.forEach((item) => observer.unobserve(item));
+        };
+    }, []);
     return (
         <div id='project' className='projects'>
             <div className='websites'>
 
                 <div className='website'>
                     <div className='image'>
-                        <img src='https://i.ibb.co/0MfYpWh/Screenshot-2024-01-16-at-9-33-50-AM.png' alt='...' />
-                        <a href='https://www.vamsheetechnoschoolbsp.vercel.app/' target='_blank' rel="noreferrer" className="btn">
-                            <img src='https://cdn-icons-png.flaticon.com/512/13437/13437567.png' alt='...' />
-                        </a>
-                    </div>
-
-                    <name>Vamshee Techno School</name>
-                    <div className='links'>
-                        <div className='link'>
-                            <a href='https://github.com/VinayVamshee/Project---Techno.git'>Github Repository</a>
-                        </div>
-                        <p className="d-inline-flex gap-1">
-                            <button className="btn dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#CollapseVamsheeTechnoSchool" aria-expanded="false" aria-controls="CollapseVamsheeTechnoSchool">
-                            </button>
-                        </p>
-                    </div>
-                    <div className="collapse" id="CollapseVamsheeTechnoSchool">
-                            A project improving accessibility and functionality for <br />educational management.
-                    </div>
-                </div>
-
-
-                <div className='website'>
-                    <div className='image'>
-                        <img src='https://i.ibb.co/CwQJj5w/Screenshot-2024-01-16-at-10-25-53-AM.png' alt='...' />
+                        <img src={CCC} alt='...' />
                         <a href='https://ccc-secr-bsp.vercel.app/' target='_blank' rel="noreferrer" className="btn">
                             <img src='https://cdn-icons-png.flaticon.com/512/13437/13437567.png' alt='...' />
                         </a>
@@ -70,13 +50,13 @@ export default function Projects() {
                         </p>
                     </div>
                     <div className="collapse" id="CollapseCCCSECRBSP">
-                            A live web platform for station employees to manage books, videos, notices, and contacts, with admin controls for content management.
+                        A live web platform for station employees to manage books, videos, notices, and contacts, with admin controls for content management.
                     </div>
                 </div>
 
                 <div className='website'>
                     <div className='image'>
-                        <img src='https://i.ibb.co/nkNM08D/Screenshot-2024-12-14-at-12-19-31-PM.png' alt='...' />
+                        <img src={RRR} alt='...' />
                         <a href='https://rrr-secr.vercel.app/' target='_blank' rel="noreferrer" className="btn">
                             <img src='https://cdn-icons-png.flaticon.com/512/13437/13437567.png' alt='...' />
                         </a>
@@ -92,13 +72,36 @@ export default function Projects() {
                         </p>
                     </div>
                     <div className="collapse" id="CollapseRRRSECR">
-                            A project that digitizes and streamlines staff room management, automating occupancy tracking and data management across multiple stations.
+                        A project that digitizes and streamlines staff room management, automating occupancy tracking and data management across multiple stations.
                     </div>
                 </div>
 
                 <div className='website'>
                     <div className='image'>
-                        <img src='https://i.ibb.co/fYNRLMJW/Screenshot-2025-02-04-at-18-18-02.png' alt='...' />
+                        <img src={VTS} alt='...' />
+                        <a href='https://vamsheetechnoschoolbsp.vercel.app/' target='_blank' rel="noreferrer" className="btn">
+                            <img src='https://cdn-icons-png.flaticon.com/512/13437/13437567.png' alt='...' />
+                        </a>
+                    </div>
+
+                    <name>Vamshee Techno School</name>
+                    <div className='links'>
+                        <div className='link'>
+                            <a href='https://github.com/VinayVamshee/Project---Techno.git'>Github Repository</a>
+                        </div>
+                        <p className="d-inline-flex gap-1">
+                            <button className="btn dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#CollapseVamsheeTechnoSchool" aria-expanded="false" aria-controls="CollapseVamsheeTechnoSchool">
+                            </button>
+                        </p>
+                    </div>
+                    <div className="collapse" id="CollapseVamsheeTechnoSchool">
+                        A project improving accessibility and functionality for <br />educational management.
+                    </div>
+                </div>
+
+                <div className='website'>
+                    <div className='image'>
+                        <img src={IRWSI} alt='...' />
                         <a href='https://vigilance-secr.vercel.app/' target='_blank' rel="noreferrer" className="btn">
                             <img src='https://cdn-icons-png.flaticon.com/512/13437/13437567.png' alt='...' />
                         </a>
@@ -114,13 +117,13 @@ export default function Projects() {
                         </p>
                     </div>
                     <div className="collapse" id="CollapseGovConnect">
-                    GovConnect is a platform that gathers all essential government websites in one place and allows users to save their favorite websites, with multi-user support and a search feature.
+                        GovConnect is a platform that gathers all essential government websites in one place and allows users to save their favorite websites, with multi-user support and a search feature.
                     </div>
                 </div>
 
             </div>
 
-            <Footer/>
+            <Footer />
         </div>
     )
 }
