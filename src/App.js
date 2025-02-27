@@ -1,18 +1,32 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Menu from './Components/Menu';
 import Home from './Components/Home';
 import About from './Components/About';
 import Projects from './Components/Projects';
 
+import { useEffect } from 'react';
 
+import ReactGA from 'react-ga4';
+
+const TRACKING_ID = 'G-4WJD35TY5L';
+ReactGA.initialize(TRACKING_ID);
+
+function AnalyticsTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: location.pathname });
+  }, [location]);
+
+  return null;
+}
 
 function App() {
-  console.log(CSS.supports("animation-timeline", "view()"));
-
   return (
     <div className="App">
       <Router>
+    <AnalyticsTracker />
       <Menu />
       <Routes>
         <Route  path='/' exact element={<Home/>}/>
