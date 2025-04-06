@@ -42,7 +42,7 @@ export default function Projects() {
                     <name>CCC SECR BSP</name>
                     <div className='links'>
                         <div className='link'>
-                            <a href='https://github.com/VinayVamshee/Project-CCC-SECR-BSP.git'>Github Repository</a>
+                            <a href='https://github.com/VinayVamshee/Project-CCC-SECR-BSP.git' target='_blank' rel="noreferrer">Github Repository</a>
                         </div>
                         <p className="d-inline-flex gap-1">
                             <button className="btn dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#CollapseCCCSECRBSP" aria-expanded="false" aria-controls="CollapseCCCSECRBSP">
@@ -64,7 +64,7 @@ export default function Projects() {
                     <name>Railway Running Rooms</name>
                     <div className='links'>
                         <div className='link'>
-                            <a href='https://github.com/VinayVamshee/Railway_Running_Rooms.git'>Github Repository</a>
+                            <a href='https://github.com/VinayVamshee/Railway_Running_Rooms.git' target='_blank' rel="noreferrer">Github Repository</a>
                         </div>
                         <p className="d-inline-flex gap-1">
                             <button className="btn dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#CollapseRRRSECR" aria-expanded="false" aria-controls="CollapseRRRSECR">
@@ -87,7 +87,7 @@ export default function Projects() {
                     <name>Vamshee Techno School</name>
                     <div className='links'>
                         <div className='link'>
-                            <a href='https://github.com/VinayVamshee/Project---Techno.git'>Github Repository</a>
+                            <a href='https://github.com/VinayVamshee/Project---Techno.git' target='_blank' rel="noreferrer">Github Repository</a>
                         </div>
                         <p className="d-inline-flex gap-1">
                             <button className="btn dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#CollapseVamsheeTechnoSchool" aria-expanded="false" aria-controls="CollapseVamsheeTechnoSchool">
@@ -109,7 +109,7 @@ export default function Projects() {
                     <name>Government Websites</name>
                     <div className='links'>
                         <div className='link'>
-                            <a href='https://github.com/VinayVamshee/IRWSI-Indian-Railway-WebsiteS-Information.git'>Github Repository</a>
+                            <a href='https://github.com/VinayVamshee/IRWSI-Indian-Railway-WebsiteS-Information.git' target='_blank' rel="noreferrer">Github Repository</a>
                         </div>
                         <p className="d-inline-flex gap-1">
                             <button className="btn dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#CollapseGovConnect" aria-expanded="false" aria-controls="CollapseRRRSECR">
@@ -118,6 +118,29 @@ export default function Projects() {
                     </div>
                     <div className="collapse" id="CollapseGovConnect">
                         GovConnect is a platform that gathers all essential government websites in one place and allows users to save their favorite websites, with multi-user support and a search feature.
+                    </div>
+                </div>
+
+
+                <div className='website'>
+                    <div className='image'>
+                        <img src="https://i.ibb.co/7xm0Ls1M/Screenshot-2025-04-06-at-17-49-30.png" alt='...' />
+                        <a href='https://sss-school-scholastic-system.vercel.app/' target='_blank' rel="noreferrer" className="btn">
+                            <img src='https://cdn-icons-png.flaticon.com/512/13437/13437567.png' alt='...' />
+                        </a>
+                    </div>
+                    <name>SSS – School Scholastic System</name>
+                    <div className='links'>
+                        <div className='link'>
+                            <a href='https://github.com/VinayVamshee/SSS-School-Scholastic-System.git' target='_blank' rel="noreferrer">Github Repository</a>
+                        </div>
+                        <p className="d-inline-flex gap-1">
+                            <button className="btn dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#CollapseSSS" aria-expanded="false" aria-controls="CollapseSSS">
+                            </button>
+                        </p>
+                    </div>
+                    <div className="collapse" id="CollapseSSS">
+                    This is a school administration software built to simplify real-world school operations. It supports student enrollment, fee tracking with receipts and reports, exam and marks management, and customizable student info fields. With interactive dashboards and a clean UI, it enhances efficiency and transparency. <p style={{fontWeight: 'bold'}}>Currently under active development.</p>
                     </div>
                 </div>
 
