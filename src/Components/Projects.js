@@ -4,6 +4,7 @@ import CCC from './Images/CCC-Page.png'
 import IRWSI from './Images/IRWSI-Page.png'
 import RRR from './Images/RRR-Page.png'
 import VTS from './Images/VTS-Page.png'
+import Helmet from './Images/Helmet.png'
 
 export default function Projects() {
     useEffect(() => {
@@ -140,9 +141,33 @@ export default function Projects() {
                         </p>
                     </div>
                     <div className="collapse" id="CollapseSSS">
-                    This is a school administration software built to simplify real-world school operations. It supports student enrollment, fee tracking with receipts and reports, exam and marks management, and customizable student info fields. With interactive dashboards and a clean UI, it enhances efficiency and transparency. <p style={{fontWeight: 'bold'}}>Currently under active development.</p>
+                        This is a school administration software built to simplify real-world school operations. It supports student enrollment, fee tracking with receipts and reports, exam and marks management, and customizable student info fields. With interactive dashboards and a clean UI, it enhances efficiency and transparency. <p style={{ fontWeight: 'bold' }}>Currently under active development.</p>
                     </div>
                 </div>
+
+                <div className='website'>
+                    <div className='image'>
+                        <img src={Helmet} alt='Helmet Detection Demo' />
+                        <span href='https://your-helmet-detection-app.vercel.app/' target='_blank' rel="noreferrer" className="btn">
+                            <img src='https://cdn-icons-png.flaticon.com/512/13437/13437567.png' alt='Open App' />
+                        </span>
+                    </div>
+                    <name>Helmet Detection System</name>
+                    <div className='links'>
+                        <div className='link'>
+                            <span href='https://github.com/yourusername/helmet-detection-project' target='_blank' rel="noreferrer">Github Repository</span>
+                        </div>
+                        <p className="d-inline-flex gap-1">
+                            <button className="btn dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#CollapseHelmet" aria-expanded="false" aria-controls="CollapseHelmet">
+                            </button>
+                        </p>
+                    </div>
+                    <div className="collapse" id="CollapseHelmet">
+                        This project detects bike riders, helmets, and number plates using a YOLOv8 model integrated into a Streamlit web app. It identifies whether a rider is wearing a helmet or not and performs OCR on detected number plates. Ideal for traffic monitoring and safety enforcement systems.
+                        <p style={{ fontWeight: 'bold' }}>Built using YOLOv8, Streamlit, and EasyOCR.</p>
+                    </div>
+                </div>
+
 
             </div>
 
