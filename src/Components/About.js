@@ -117,7 +117,7 @@ export default function About() {
                 </ul>
             </div>
 
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

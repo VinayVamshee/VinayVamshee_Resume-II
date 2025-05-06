@@ -149,7 +149,6 @@ export default function Projects() {
                     <div className='image'>
                         <img src={Helmet} alt='Helmet Detection Demo' />
                         <span href='https://your-helmet-detection-app.vercel.app/' target='_blank' rel="noreferrer" className="btn">
-                            <img src='https://cdn-icons-png.flaticon.com/512/13437/13437567.png' alt='Open App' />
                         </span>
                     </div>
                     <name>Helmet Detection System</name>
@@ -171,7 +170,7 @@ export default function Projects() {
 
             </div>
 
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }
