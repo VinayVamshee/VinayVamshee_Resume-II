@@ -77,28 +77,7 @@ export default function Projects() {
                     </div>
                 </div>
 
-                <div className='website'>
-                    <div className='image'>
-                        <img src={VTS} alt='...' />
-                        <a href='https://vamsheetechnoschoolbsp.vercel.app/' target='_blank' rel="noreferrer" className="btn">
-                            <img src='https://cdn-icons-png.flaticon.com/512/13437/13437567.png' alt='...' />
-                        </a>
-                    </div>
-
-                    <name>Vamshee Techno School</name>
-                    <div className='links'>
-                        <div className='link'>
-                            <a href='https://github.com/VinayVamshee/Project---Techno.git' target='_blank' rel="noreferrer">Github Repository</a>
-                        </div>
-                        <p className="d-inline-flex gap-1">
-                            <button className="btn dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#CollapseVamsheeTechnoSchool" aria-expanded="false" aria-controls="CollapseVamsheeTechnoSchool">
-                            </button>
-                        </p>
-                    </div>
-                    <div className="collapse" id="CollapseVamsheeTechnoSchool">
-                        A project improving accessibility and functionality for <br />educational management.
-                    </div>
-                </div>
+                
 
                 <div className='website'>
                     <div className='image'>
