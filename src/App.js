@@ -8,6 +8,7 @@ import Projects from './Components/Projects';
 import { useEffect } from 'react';
 
 import ReactGA from 'react-ga4';
+import ProjectInfo from './Components/ProjectInfo';
 
 const TRACKING_ID = 'G-4WJD35TY5L';
 ReactGA.initialize(TRACKING_ID);
@@ -26,15 +27,16 @@ function App() {
   return (
     <div className="App">
       <Router>
-    <AnalyticsTracker />
-      <Menu />
-      <Routes>
-        <Route  path='/' exact element={<Home/>}/>
-        <Route  path='/About' exact element={<About/>}/>
-        <Route  path='/Projects' exact element={<Projects/>}/>
-      </Routes>
+        <AnalyticsTracker />
+        <Menu />
+        <Routes>
+          <Route path='/' exact element={<Home />} />
+          <Route path='/About' exact element={<About />} />
+          <Route path='/Projects' exact element={<Projects />} />
+          <Route path="/project/:id" element={<ProjectInfo />} />
+        </Routes>
       </Router>
-     
+
 
     </div>
   );
