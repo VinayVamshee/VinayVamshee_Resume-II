@@ -6,6 +6,7 @@ import IRWSI from './Images/IRWSI-Page.png'
 import RRR from './Images/RRR-Page.png'
 import VTS from './Images/VTS-Page.png'
 import Helmet from './Images/Helmet.png'
+import MaguvasCover from './Images/Screenshot 2025-06-11 at 11.59.16.png'
 
 export default function Projects() {
     useEffect(() => {
@@ -115,6 +116,97 @@ export default function Projects() {
                 explanation: `CCC-SECR-BSP digitizes internal communication at Bilaspur Station, replacing physical files and fragmented WhatsApp-based updates. Employees can download training books, stream approved videos, find any coworker’s contact, and receive real-time admin notices—all in one place.  
 From the admin side, all modules are managed via a secure dashboard, including content control, Excel exports, and in-app feedback.  
 The project was built in a week, later upgraded with real-time alerts. CCC now acts as the central communication hub for station operations.`
+            }
+        },
+        {
+            id: 'MAGUVAS-COLLECTION',
+            imageSrc: MaguvasCover,
+            liveUrl: 'https://maguvas-collection.vercel.app/',
+            name: 'Maguva’s Collection',
+            githubUrl: 'https://github.com/VinayVamshee/Maguvas-Collection',
+            description: 'A boutique-style women’s fashion e-commerce app featuring product filters, manual payments, and a full admin dashboard for inventory and order management.',
+            moreImages: [
+                'https://i.ibb.co/MkVJVTrb/Screenshot-2025-06-09-at-22-37-21.png',
+                'https://i.ibb.co/0RRTHvdD/Screenshot-2025-06-11-at-12-02-56.png',
+                'https://i.ibb.co/rPP4s2p/Screenshot-2025-06-11-at-12-03-55.png',
+                'https://i.ibb.co/f5whnXb/Screenshot-2025-06-11-at-12-04-04.png',
+                'https://i.ibb.co/RG5yCTxy/Screenshot-2025-06-11-at-12-04-13.png',
+                'https://i.ibb.co/qMLrdC1D/Screenshot-2025-06-11-at-12-04-35.png',
+                'https://i.ibb.co/7xpsXgvh/Screenshot-2025-06-11-at-12-03-19.png'
+            ],
+            fullDetails: {
+                intro: `Maguva’s Collection is a boutique-style, full-stack e-commerce web app focused on women's fashion. It enables users to browse apparels and accessories, apply filters, and place orders using a simple QR-based payment method. Built in just 4 days using free-tier tools, the platform provides full admin control over products, categories, and orders, making it ideal for small-scale fashion businesses.`,
+
+                description: `Maguva’s Collection is a mobile and desktop-compatible e-commerce platform built for women's fashion. It supports user login, product filtering, cart functionality, and manual payment workflows. An integrated admin panel provides CRUD controls over products, categories, and order tracking.`,
+
+                features: {
+                    userFeatures: [
+                        '🛍️ Homepage with New Arrivals carousel',
+                        '👗 Category browsing: Apparels & Accessories',
+                        '🔍 Product search by name',
+                        '🎯 Filter by size, color, category',
+                        '↕️ Sort by price (Low/High) or date (Newest/Oldest)',
+                        '🖼️ Hover effect on product cards to view alternate images',
+                        '📄 Product detail page with description, price, and options',
+                        '🧺 Add to Cart with quantity selection',
+                        '👤 User login to access cart & orders',
+                        '🛒 View & manage cart (remove items, checkout)',
+                        '📦 Order history with status: Pending / Delivered / Cancelled',
+                        '🚫 Graceful handling of empty or loading states'
+                    ],
+                    adminFeatures: [
+                        '🔐 Admin login system',
+                        '📊 Dashboard for managing Apparels & Accessories separately',
+                        '📦 Add/Edit/Delete products, sizes, colors, categories',
+                        '🧾 Orders panel with delivery status and payment method input',
+                        '📉 Out-of-stock toggle for products'
+                    ]
+                },
+
+                techStack: {
+                    frontend: 'React, CSS (with Bootstrap)',
+                    backend: 'Node.js, Express.js',
+                    database: 'MongoDB Atlas',
+                    auth: 'JWT for User & Admin login',
+                    deployment: {
+                        frontend: 'Vercel',
+                        backend: 'Vercel',
+                    },
+                    versionControl: 'Git + GitHub'
+                },
+
+                timeline: [
+                    { date: '2 June 2025', activity: 'Frontend UI and backend server setup' },
+                    { date: '3 June 2025', activity: 'Backend models/routes (products, users, cart, orders)' },
+                    { date: '4 June 2025', activity: 'Frontend-backend integration, user & admin flows' },
+                    { date: '5 June 2025', activity: 'Testing, animations, final UI polishing, deployment' }
+                ],
+
+                requirements: {
+                    functionalRequirements: [
+                        '🛍️ Dynamic product listing by category',
+                        '🔎 Filter and sort functionality',
+                        '🛒 Add to cart and place order',
+                        '👤 User registration & login',
+                        '📦 Order tracking with status',
+                        '🧰 Admin CRUD for inventory & categories',
+                        '📤 Manual payment flow with QR code',
+                        '📆 Admin entry for delivery & payment info'
+                    ],
+                    nonFunctionalRequirements: [
+                        '📱 Responsive for mobile and desktop',
+                        '🖼️ Interactive hover UI on product cards',
+                        '🌐 Free-tier hosting with environment config',
+                        '🧪 Manual testing for stability across devices',
+                        '📎 Fallback UI for errors or empty content'
+                    ]
+                },
+
+                explanation: `Maguva’s Collection was built as a learning project to understand and implement complete e-commerce functionality in a real-world context. While the app currently fetches sample/random data, it is fully functional and scalable for live use.
+
+Its backend supports multiple admin controls, order tracking, and full product categorization. The absence of an online payment gateway was intentional—to simulate a boutique model where admins can handle payments manually using QR codes.
+
+With features like product filtering, sorting, admin panel, order status updates, and responsive UI, this project delivers an end-to-end understanding of how scalable fashion e-commerce platforms are built.`
             }
         },
         {
