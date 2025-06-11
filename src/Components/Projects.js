@@ -121,9 +121,9 @@ The project was built in a week, later upgraded with real-time alerts. CCC now a
         {
             id: 'MAGUVAS-COLLECTION',
             imageSrc: MaguvasCover,
-            liveUrl: 'https://maguvas-collection.vercel.app/',
+            liveUrl: 'https://mallikas-store.vercel.app/',
             name: 'Maguva’s Collection',
-            githubUrl: 'https://github.com/VinayVamshee/Maguvas-Collection',
+            githubUrl: 'https://github.com/VinayVamshee/Mallikas-Store.git',
             description: 'A boutique-style women’s fashion e-commerce app featuring product filters, manual payments, and a full admin dashboard for inventory and order management.',
             moreImages: [
                 'https://i.ibb.co/MkVJVTrb/Screenshot-2025-06-09-at-22-37-21.png',
