@@ -1,10 +1,11 @@
 import { useLocation, Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import ProjectSlider from './ProjectSlider'; // adjust path if needed
 
 export default function ProjectInfo() {
     useEffect(() => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}, []);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
 
     const location = useLocation();
@@ -55,6 +56,13 @@ export default function ProjectInfo() {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
+            {/* Carousel */}
+            {/* Custom Image Slider */}
+            <div className="mb-5 projectslider">
+                <ProjectSlider images={allImages} delay={3000} />
+            </div>
+
+
 
             {/* Project Header */}
             <div className="mb-4">

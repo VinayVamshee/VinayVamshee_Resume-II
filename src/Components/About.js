@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import Footer from './Footer'
+// import Footer from './Footer'
 import Brilliant from './Images/Brilliant-Image.jpg'
 import Vtop from './Images/Vtop-Image.png'
 

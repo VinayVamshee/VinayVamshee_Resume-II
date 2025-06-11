@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import Footer from './Footer'
+// import Footer from './Footer'
 import CCC from './Images/CCC-Page.png'
 import IRWSI from './Images/IRWSI-Page.png'
 import RRR from './Images/RRR-Page.png'
