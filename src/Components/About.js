@@ -31,13 +31,29 @@ export default function About() {
     return (
         <div id='about' className='about'>
 
-            <div className='description'>
-                <div className='heading'>Who I Am and What I Do</div>
-                Hello! I'm Pechetti Vinay Vamshee, a Computer Science Engineering student at VIT Vellore.<br /><br /> I specialize in full-stack development with a strong foundation in Java, Data Structures, Algorithms, and Object-Oriented Programming. My experience extends to the MERN stack, where I have hands-on expertise in both front-end and back-end development, including MongoDB.
-                I'm passionate about technology and always strive to stay updated with new trends and advancements. Several of my projects are live, with one attracting 100+ daily visitors and 5000 to 10,000 views per month. I take pride in my discipline, consistency, and time management skills, which have allowed me to achieve these milestones. I'm always eager to learn and grow, and I'm excited to continue exploring innovative technologies.
-                <br /><br />
-                Feel free to explore my work and get in touch with me through the contact section.
-            </div>
+            <section className='description'>
+    <h2 className='heading'>Who I Am and What I Do</h2>
+    <p>
+        Hi! I'm <strong>Pechetti Vinay Vamshee</strong>, a Computer Science Engineering graduate from <strong>VIT Vellore</strong>, driven by a deep passion for software development and impactful digital solutions.
+    </p>
+    <p>
+        I specialize in full-stack development using the <strong>MERN stack</strong> and have a strong foundation in <strong>Java</strong>, <strong>Data Structures & Algorithms</strong>, and <strong>Object-Oriented Programming</strong>.
+    </p>
+    <p>
+        My work includes real-world applications currently used by Indian Railways and educational institutions. One of my deployed platforms receives over <strong>100 daily users</strong> and garners 5,000–10,000 monthly visits. I also built <em>Glance</em>, a dynamic, personalized bookmark manager designed as a better alternative to Chrome’s native system.
+    </p>
+    <p>
+        I’m detail-oriented, organized, and consistent — always aiming for clean code, smooth UI/UX, and high performance. Whether it's designing intuitive interfaces or building scalable backend logic, I enjoy delivering complete, production-grade products.
+    </p>
+    <p>
+        Outside of coding, I spend time sketching UI concepts, planning in Notion, staying up to date with tech trends, and refining my development workflows.
+    </p>
+    <p>
+        I'm always looking to contribute to meaningful projects, collaborate with talented teams, and continuously grow as a developer.
+    </p>
+    <p><strong>Let’s build something amazing together!</strong></p>
+</section>
+
 
             <div className='education'>
                 <div className='heading'>Educational Background</div>

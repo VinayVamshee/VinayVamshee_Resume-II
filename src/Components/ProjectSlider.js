@@ -24,8 +24,7 @@ const ProjectSlider = ({ images }) => {
         const dirX = dir === 'right' ? -200 : 200; // <-- flipped
 
         gsap.fromTo('.middleImage', { x: dirX, opacity: 0, scale: 0.6 }, { x: 0, opacity: 1, scale: 1, duration: 0.5 });
-        gsap.fromTo('.rightImage', { x: -600, opacity: 0, scale: 0.6 }, { x: 0, opacity: 1, scale: 1, duration: 0.5 });
-        gsap.fromTo('.leftImage', { x: 500, opacity: 0, scale: 0.6 }, { x: 0, opacity: 1, scale: 1, duration: 0.5 });
+
     };
 
     const handleNext = () => {
