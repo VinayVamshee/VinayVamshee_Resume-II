@@ -290,84 +290,84 @@ With features like product filtering, sorting, admin panel, order status updates
         `
             }
         },
-        {
-            id: 'Vamshee Techno School',
-            imageSrc: VTS,
-            liveUrl: 'https://vamsheetechnoschoolbsp.vercel.app/',
-            name: 'Vamshee Techno School',
-            githubUrl: 'https://github.com/VinayVamshee/Project---Techno.git',
-            description: 'A clean and responsive school website to showcase events, academics, and public notices with admin management.',
-            moreImages: [
-                'https://i.ibb.co/99tLzDm1/Screenshot-2025-06-11-at-00-10-47.png',
-                'https://i.ibb.co/jNdycKD/Screenshot-2025-06-11-at-00-10-20.png',
-            ],
-            fullDetails: {
-                intro: `Vamshee Techno School (VTS) is a public-facing digital platform designed to represent a school's values, academic resources, and celebration of events. Built with a clean UI, responsive layout, and smooth transitions, it allows students, parents, and visitors to easily access essential school-related content like book lists, timetables, notices, and galleries.`,
+        // {
+        //     id: 'Vamshee Techno School',
+        //     imageSrc: VTS,
+        //     liveUrl: 'https://vamsheetechnoschoolbsp.vercel.app/',
+        //     name: 'Vamshee Techno School',
+        //     githubUrl: 'https://github.com/VinayVamshee/Project---Techno.git',
+        //     description: 'A clean and responsive school website to showcase events, academics, and public notices with admin management.',
+        //     moreImages: [
+        //         'https://i.ibb.co/99tLzDm1/Screenshot-2025-06-11-at-00-10-47.png',
+        //         'https://i.ibb.co/jNdycKD/Screenshot-2025-06-11-at-00-10-20.png',
+        //     ],
+        //     fullDetails: {
+        //         intro: `Vamshee Techno School (VTS) is a public-facing digital platform designed to represent a school's values, academic resources, and celebration of events. Built with a clean UI, responsive layout, and smooth transitions, it allows students, parents, and visitors to easily access essential school-related content like book lists, timetables, notices, and galleries.`,
 
-                description: `VTS serves as an informative and interactive public website for the school. It’s not a management system, but a digital window into the school's environment—highlighting teaching practices, academic structure, and cultural celebrations.`,
+        //         description: `VTS serves as an informative and interactive public website for the school. It’s not a management system, but a digital window into the school's environment—highlighting teaching practices, academic structure, and cultural celebrations.`,
 
-                features: {
-                    userFeatures: [
-                        '🏫 Homepage introducing the school’s vision and education style',
-                        '📅 Academic section with timetables, book lists, and calendars',
-                        '📌 Notice board with latest updates for students and parents',
-                        '🖼️ Events & Gallery showcasing school events, photos, and videos',
-                        '🌓 Theme switcher (Light/Dark) with smooth transitions',
-                        '📱 Mobile-friendly design with responsive layout'
-                    ],
-                    adminFeatures: [
-                        '🔐 Admin panel with secure login',
-                        '🛠️ CMS for uploading and managing notices, gallery, and academic data',
-                        '📤 Editable fee structure and document links',
-                        '📸 Media upload system for gallery (images/videos)'
-                    ]
-                },
+        //         features: {
+        //             userFeatures: [
+        //                 '🏫 Homepage introducing the school’s vision and education style',
+        //                 '📅 Academic section with timetables, book lists, and calendars',
+        //                 '📌 Notice board with latest updates for students and parents',
+        //                 '🖼️ Events & Gallery showcasing school events, photos, and videos',
+        //                 '🌓 Theme switcher (Light/Dark) with smooth transitions',
+        //                 '📱 Mobile-friendly design with responsive layout'
+        //             ],
+        //             adminFeatures: [
+        //                 '🔐 Admin panel with secure login',
+        //                 '🛠️ CMS for uploading and managing notices, gallery, and academic data',
+        //                 '📤 Editable fee structure and document links',
+        //                 '📸 Media upload system for gallery (images/videos)'
+        //             ]
+        //         },
 
-                techStack: {
-                    frontend: 'React, CSS3, JavaScript',
-                    backend: 'NodeJS, ExpressJS',
-                    database: 'MongoDB Atlas',
-                    auth: 'JWT-based or session-based login',
-                    deployment: {
-                        frontend: 'Vercel',
-                        backend: 'Vercel',
-                    },
-                    versionControl: 'Git + GitHub'
-                },
+        //         techStack: {
+        //             frontend: 'React, CSS3, JavaScript',
+        //             backend: 'NodeJS, ExpressJS',
+        //             database: 'MongoDB Atlas',
+        //             auth: 'JWT-based or session-based login',
+        //             deployment: {
+        //                 frontend: 'Vercel',
+        //                 backend: 'Vercel',
+        //             },
+        //             versionControl: 'Git + GitHub'
+        //         },
 
-                timeline: [
-                    { date: '10th Dec 2023', activity: 'Project Started – Initial UI and homepage layout' },
-                    { date: '14th Dec 2023', activity: 'Developed events gallery and visuals for celebrations' },
-                    { date: '18th Dec 2023', activity: 'Academic section: books, timetable, fee structure integrated' },
-                    { date: '22nd Dec 2023', activity: 'Admin dashboard built for real-time content updates' },
-                    { date: '24th Dec 2023', activity: 'Implemented UI animations and theme switcher' },
-                    { date: '26th Dec 2023', activity: 'Project deployed and live to public' }
-                ],
+        //         timeline: [
+        //             { date: '10th Dec 2023', activity: 'Project Started – Initial UI and homepage layout' },
+        //             { date: '14th Dec 2023', activity: 'Developed events gallery and visuals for celebrations' },
+        //             { date: '18th Dec 2023', activity: 'Academic section: books, timetable, fee structure integrated' },
+        //             { date: '22nd Dec 2023', activity: 'Admin dashboard built for real-time content updates' },
+        //             { date: '24th Dec 2023', activity: 'Implemented UI animations and theme switcher' },
+        //             { date: '26th Dec 2023', activity: 'Project deployed and live to public' }
+        //         ],
 
-                requirements: {
-                    functionalRequirements: [
-                        '🏫 Display homepage with mission, values, and welcome section',
-                        '📅 Dynamic academic resources with admin-editable entries',
-                        '📌 Notices board with date-wise updates',
-                        '🖼️ Gallery module with image/video support and titles',
-                        '🛠️ Admin login and content management system',
-                        '🌓 Toggle for dark/light mode with local preference save'
-                    ],
-                    nonFunctionalRequirements: [
-                        '📱 Fully responsive layout across devices',
-                        '⚡ Fast-loading pages with clean navigation',
-                        '🎨 Smooth animations for all UI elements',
-                        '🌐 Hosted on Vercel',
-                        '🔒 Secure JWT authentication for admin routes',
-                        '🔗 SEO-friendly metadata and dynamic image previews'
-                    ]
-                },
+        //         requirements: {
+        //             functionalRequirements: [
+        //                 '🏫 Display homepage with mission, values, and welcome section',
+        //                 '📅 Dynamic academic resources with admin-editable entries',
+        //                 '📌 Notices board with date-wise updates',
+        //                 '🖼️ Gallery module with image/video support and titles',
+        //                 '🛠️ Admin login and content management system',
+        //                 '🌓 Toggle for dark/light mode with local preference save'
+        //             ],
+        //             nonFunctionalRequirements: [
+        //                 '📱 Fully responsive layout across devices',
+        //                 '⚡ Fast-loading pages with clean navigation',
+        //                 '🎨 Smooth animations for all UI elements',
+        //                 '🌐 Hosted on Vercel',
+        //                 '🔒 Secure JWT authentication for admin routes',
+        //                 '🔗 SEO-friendly metadata and dynamic image previews'
+        //             ]
+        //         },
 
-                explanation: `VTS was created as a modern school presentation website—where visitors can understand the school’s ethos and explore important student-related resources. It merges clarity and visual richness, especially in the Events & Gallery section that builds school credibility by displaying real pictures and videos of activities.  
-        The academic section provides downloadable resources, timetables, and fee structures, helping reduce confusion for parents.  
-        Admins can log in to update any document, notice, or gallery post at any time. With smooth transitions, theme toggle, and clear UI design, VTS stands as a polished digital identity for the school.`
-            }
-        },
+        //         explanation: `VTS was created as a modern school presentation website—where visitors can understand the school’s ethos and explore important student-related resources. It merges clarity and visual richness, especially in the Events & Gallery section that builds school credibility by displaying real pictures and videos of activities.  
+        // The academic section provides downloadable resources, timetables, and fee structures, helping reduce confusion for parents.  
+        // Admins can log in to update any document, notice, or gallery post at any time. With smooth transitions, theme toggle, and clear UI design, VTS stands as a polished digital identity for the school.`
+        //     }
+        // },
         {
             id: 'Gov-Connect',
             imageSrc: IRWSI,
