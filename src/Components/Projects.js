@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import CCC from './Images/CCC-Page.png'
 import IRWSI from './Images/IRWSI-Page.png'
 import RRR from './Images/RRR-Page.png'
+import ABC from './Images/Screenshot 2025-12-21 at 17.31.04.png'
 import VTS from './Images/VTS-Page.png'
 import Helmet from './Images/Helmet.png'
 import MaguvasCover from './Images/Screenshot 2025-06-11 at 11.59.16.png'
@@ -207,6 +208,99 @@ The project was built in a week, later upgraded with real-time alerts. CCC now a
 Its backend supports multiple admin controls, order tracking, and full product categorization. The absence of an online payment gateway was intentional—to simulate a boutique model where admins can handle payments manually using QR codes.
 
 With features like product filtering, sorting, admin panel, order status updates, and responsive UI, this project delivers an end-to-end understanding of how scalable fashion e-commerce platforms are built.`
+            }
+        },
+        {
+            id: 'ABC',
+            imageSrc: ABC, // replace with your main cover image import
+            liveUrl: '', // keep empty if not publicly hosted yet
+            name: 'ABC – Aneesh Business Console',
+            githubUrl: 'https://github.com/VinayVamshee/Project-ABC.git',
+            description: 'A full-fledged business management console for handling inventory, orders, selling, billing, payments, and customer data using a fully dynamic field engine.',
+            moreImages: [
+                'https://i.ibb.co/XXXXXXX/abc-1.png',
+                'https://i.ibb.co/XXXXXXX/abc-2.png',
+                'https://i.ibb.co/XXXXXXX/abc-3.png',
+                'https://i.ibb.co/XXXXXXX/abc-4.png'
+            ],
+            fullDetails: {
+                intro: `ABC (Aneesh Business Console) is a modular, dynamic business management platform designed to handle real-world trading workflows. It manages inventory, customer orders, direct sales, billing, payments, and customer records with a single unified system. The platform is built with flexibility at its core — all product, order, and customer fields are admin-defined, making it adaptable to multiple business types such as jewellery, electronics, or retail.`,
+
+                description: `ABC is a full-stack MERN application focused on real business operations. It eliminates hardcoded forms and replaces them with a dynamic field engine, allowing admins to control every data structure from the backend. From stock entry to final billing, the system enforces strict data flow rules to avoid inconsistencies and supports partial payments, profit calculation, and detailed transaction tracking.`,
+
+                features: {
+                    userFeatures: [
+                        '📦 Dynamic Inventory management with admin-defined fields',
+                        '🧾 Order creation with customer and product details',
+                        '💰 Buying cost price tracking for orders and inventory',
+                        '🏷️ Direct selling from inventory or completed orders',
+                        '🧮 Automatic final price and profit calculation',
+                        '👤 Customer details captured dynamically at time of sale',
+                        '💳 Multiple payment entries per bill with history tracking',
+                        '📊 Unified overview tables with search, filters, and sorting',
+                        '🖼️ Image uploads for products, orders, and customers',
+                        '🌓 Light (Gold) and Dark (Silver) theme support'
+                    ],
+                    adminFeatures: [
+                        '🔐 Secure admin authentication using JWT',
+                        '🛠️ Dynamic field engine (no hardcoded forms)',
+                        '📋 Full CRUD control over inventory, orders, and sold records',
+                        '🧾 Auto-generated billing IDs with sequence control',
+                        '📤 Excel export support for financial and business data',
+                        '📌 Status-based workflows for orders and sold bills',
+                        '🧠 Strict sell-source enforcement (Inventory OR Order)',
+                        '🧮 Automatic payment status handling (Pending / Partial / Paid)'
+                    ]
+                },
+
+                techStack: {
+                    frontend: 'React, CSS3 (custom luxury UI), JavaScript',
+                    backend: 'Node.js, Express.js',
+                    database: 'MongoDB',
+                    auth: 'JWT-based Admin Authentication',
+                    fileHandling: 'ImgBB for image uploads',
+                    deployment: {
+                        frontend: 'Vercel (planned)',
+                        backend: 'Vercel (planned)',
+                    },
+                    versionControl: 'Git + GitHub'
+                },
+
+                timeline: [
+                    { date: '9 Nov 2024 (Sunday)', activity: 'Project kickoff, database schema design, dynamic field engine planning' },
+                    { date: 'Mid Nov 2024', activity: 'Inventory module, order module, backend APIs, frontend integration' },
+                    { date: 'Late Nov 2024', activity: 'Selling workflow, billing logic, payment handling, profit calculation' },
+                    { date: 'Early Dec 2024', activity: 'Overview panel, TopPanel filters, theming, UI refinements' },
+                    { date: '21 Dec 2024 (Sunday)', activity: 'Core system completed (Dashboard pending)' }
+                ],
+
+                requirements: {
+                    functionalRequirements: [
+                        '📦 Inventory module with dynamic product fields',
+                        '🧾 Orders module with status workflow',
+                        '💰 Buying & selling price tracking',
+                        '🧮 Profit and payment calculations',
+                        '👤 Dynamic customer data capture',
+                        '💳 Multi-payment support per bill',
+                        '🖼️ Image uploads for inventory, orders, and sold records',
+                        '📊 Unified overview with filters and sorting',
+                        '📤 Excel export functionality'
+                    ],
+                    nonFunctionalRequirements: [
+                        '🌓 Light/Dark theme support',
+                        '⚡ Smooth UI interactions and transitions',
+                        '📱 Responsive layout for desktop and tablet',
+                        '🔐 Secure JWT-based authentication',
+                        '🧠 Strict data flow and validation rules',
+                        '🧾 Clean, modular code structure',
+                        '🚀 Deployment-ready configuration',
+                        '🔗 MongoDB integration with scalable schema design'
+                    ]
+                },
+
+                explanation: `ABC was built to replicate and improve real-world business workflows where inventory, orders, and sales are tightly connected. Unlike basic CRUD systems, ABC enforces strict selling rules, supports partial payments, and maintains accurate profit calculations.  
+The dynamic field engine allows the same system to adapt to multiple business domains without code changes.  
+With its unified overview panels, detailed payment history, and theme-based UI, ABC serves as a solid foundation for small to mid-scale business management. The dashboard and analytics layer are planned as the final enhancement.`
             }
         },
         {
