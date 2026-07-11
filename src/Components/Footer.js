@@ -1,23 +1,116 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { FaLinkedin, FaGithub, FaEnvelope, FaFileAlt } from 'react-icons/fa';
+import vinayvamsheeResume from './Vinay Vamshee Resume.pdf';
 
 export default function Footer() {
-    return (
-        <div className='footer'>
-            <div className='connect'>
-                <a href="tel:+91752397404" target='_blank' rel="noreferrer"><img src='https://cdn-icons-png.flaticon.com/512/5356/5356411.png' alt='...' /></a>
-            </div>
-            <div className='connect'>
-                <a href="mailto:vinayvamshee2183@gmail.com" target='_blank' rel="noreferrer"><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png' alt='...' /></a>
-            </div>
-            <div className='connect'>
-                <a href='https://in.linkedin.com/in/pechetti-vinay-vamshee-251245231' target='_blank' rel="noreferrer"><img src='https://static.vecteezy.com/system/resources/previews/016/716/470/non_2x/linkedin-icon-free-png.png' alt='...' /></a>
-            </div>
-            <div className='connect'>
-                <a href='https://www.facebook.com/VinayVamshee/' target='_blank' rel="noreferrer"><img src='https://store-images.s-microsoft.com/image/apps.37935.9007199266245907.b029bd80-381a-4869-854f-bac6f359c5c9.91f8693c-c75b-4050-a796-63e1314d18c9?h=210' alt='...' /></a>
-            </div>
-            <div className='connect'>
-                <a href='https://www.instagram.com/vinayvamshee/?igsh=cnJrM3g0Z3c1OXZ4' target='_blank' rel="noreferrer"><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png' alt='...' /></a>
-            </div>
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ name: '', email: '', message: '' });
+    }, 3000);
+  };
+
+  return (
+    <div className="page-section" style={{ borderTop: '1px solid var(--border-glass)', paddingBottom: '40px' }}>
+      <div className="contact-grid">
+        <div className="contact-info">
+          <h2 className="contact-big-text">
+            Let's build <br />
+            something amazing.
+          </h2>
+          <p className="section-subtitle" style={{ marginBottom: '20px' }}>
+            Whether you are looking for an enterprise platform architect, custom metadata builder, or a senior product developer, let's connect.
+          </p>
+
+          <div className="contact-channels">
+            <a href="mailto:vinayvamshee2183@gmail.com" className="contact-channel-item">
+              <FaEnvelope className="contact-channel-icon" />
+              <div className="contact-channel-details">
+                <span className="contact-channel-label">Email</span>
+                <span className="contact-channel-val">vinayvamshee2183@gmail.com</span>
+              </div>
+            </a>
+            
+            <a href="https://in.linkedin.com/in/pechetti-vinay-vamshee-251245231" target="_blank" rel="noopener noreferrer" className="contact-channel-item">
+              <FaLinkedin className="contact-channel-icon" />
+              <div className="contact-channel-details">
+                <span className="contact-channel-label">LinkedIn</span>
+                <span className="contact-channel-val">linkedin.com/in/vinay-vamshee</span>
+              </div>
+            </a>
+
+            <a href="https://github.com/VinayVamshee" target="_blank" rel="noopener noreferrer" className="contact-channel-item">
+              <FaGithub className="contact-channel-icon" />
+              <div className="contact-channel-details">
+                <span className="contact-channel-label">GitHub</span>
+                <span className="contact-channel-val">github.com/VinayVamshee</span>
+              </div>
+            </a>
+
+            <a href={vinayvamsheeResume} download="Vinay_Vamshee_Resume.pdf" className="contact-channel-item">
+              <FaFileAlt className="contact-channel-icon" />
+              <div className="contact-channel-details">
+                <span className="contact-channel-label">Resume</span>
+                <span className="contact-channel-val">Download CV</span>
+              </div>
+            </a>
+          </div>
         </div>
-    )
+
+        <div className="contact-form-container">
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label className="form-label">Your Name</label>
+              <input 
+                type="text" 
+                className="form-input" 
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                placeholder="Pechetti Vinay" 
+                required 
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Email Address</label>
+              <input 
+                type="email" 
+                className="form-input" 
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                placeholder="vinay@example.com" 
+                required 
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Message</label>
+              <textarea 
+                className="form-input" 
+                rows="4" 
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                placeholder="Let's build a new product..." 
+                required 
+              />
+            </div>
+            
+            <button type="submit" className="form-submit-btn">
+              {submitted ? 'Message Sent ✓' : 'Send Message'}
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div className="footer-wrap">
+        <div className="footer-content">
+          <span>© {new Date().getFullYear()} Vinay Vamshee. Crafted with passion.</span>
+          <span style={{ fontFamily: 'var(--font-mono)' }}>MERN & Product Engineering</span>
+        </div>
+      </div>
+    </div>
+  );
 }

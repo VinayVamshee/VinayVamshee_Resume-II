@@ -1,139 +1,153 @@
-import React, { useEffect } from 'react'
-// import Footer from './Footer'
-import Brilliant from './Images/Brilliant-Image.jpg'
-import Vtop from './Images/Vtop-Image.png'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaCode, FaServer, FaDatabase, FaTools } from 'react-icons/fa';
 
 export default function About() {
-    useEffect(() => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.1 }
+    }
+  };
 
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("show");
-                    } else {
-                        entry.target.classList.remove("show"); // Remove if you want elements to re-animate on scroll
-                    }
-                });
-            },
-            { threshold: 0.4 } // Adjust visibility trigger (0 = when barely visible, 1 = fully visible)
-        );
+  const skillGroups = [
+    {
+      title: 'Languages & CRM',
+      icon: <FaCode />,
+      skills: ['Java', 'JavaScript (ES6+)', 'Apex', 'Python', 'HTML5/CSS3']
+    },
+    {
+      title: 'Frontend & UI',
+      icon: <FaCode />,
+      skills: ['React', 'Lightning Web Components (LWC)', 'Redux', 'Framer Motion', 'Bootstrap']
+    },
+    {
+      title: 'Backend & DB',
+      icon: <FaServer />,
+      skills: ['Node.js', 'Express.js', 'REST APIs', 'JWT Auth', 'Redis', 'MongoDB']
+    },
+    {
+      title: 'Architecture & Cloud',
+      icon: <FaDatabase />,
+      skills: ['SaaS Design', 'Salesforce CRM', 'Dynamic Form Builders', 'Metadata Driven Systems']
+    },
+    {
+      title: 'Tools & DevOps',
+      icon: <FaTools />,
+      skills: ['Git', 'GitHub', 'Vercel', 'Render', 'Streamlit', 'Notion']
+    }
+  ];
 
-        const items = document.querySelectorAll(".skills ul li", ".education ul li");
-        items.forEach((item) => observer.observe(item));
+  return (
+    <div className="page-section">
+      <div className="noise-overlay" />
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h2 className="section-title" variants={itemVariants}>
+          Who I Am & What I Architect
+        </motion.h2>
+        <motion.p className="section-subtitle" variants={itemVariants}>
+          I'm Pechetti Vinay Vamshee, a Computer Science graduate from VIT Vellore and currently a Salesforce Developer. I specialize in building production-grade software platforms, corporate automation tools, and dynamic metadata architectures.
+        </motion.p>
 
-        return () => {
-            items.forEach((item) => observer.unobserve(item));
-        };
-    }, []);
+        <div className="about-grid">
+          {/* Bio Column */}
+          <motion.div className="about-bio" variants={itemVariants}>
+            <p>
+              Driven by a deep passion for digital craftsmanship and technical excellence, I specialize in full-stack engineering utilizing the <strong>MERN stack</strong>, <strong>Salesforce Development (Apex/LWC)</strong>, and <strong>Java</strong>.
+            </p>
+            <p>
+              My work spans from building custom ERP solutions for educational centers to deploying real-time asset management and logging systems for enterprise clients. These systems have a direct operational impact, managing hundreds of active users and processing vital transaction records daily.
+            </p>
+            <p>
+              I design for flexibility, building metadata-driven dashboards and custom schema layers that replace rigid structures. I believe software should grow alongside the business without demanding constant updates.
+            </p>
+          </motion.div>
 
-    return (
-        <div id='about' className='about'>
+          {/* Education / Career Timeline */}
+          <motion.div className="about-timeline" variants={itemVariants}>
+            <h3 className="timeline-title">Academic & Progression</h3>
+            <div className="timeline-wrapper">
+              
+              <div className="timeline-item">
+                <div className="timeline-dot" />
+                <div className="timeline-date">2025 - Present</div>
+                <div className="timeline-card">
+                  <div className="timeline-inst">Salesforce Developer</div>
+                  <div className="timeline-degree">Cloud Systems & Enterprise Development</div>
+                  <span className="timeline-grade">2x Certified Salesforce Developer</span>
+                </div>
+              </div>
 
-            <section className='description'>
-    <h2 className='heading'>Who I Am and What I Do</h2>
-    <p>
-        Hi! I'm <strong>Pechetti Vinay Vamshee</strong>, a Computer Science Engineering graduate from <strong>VIT Vellore</strong>, driven by a deep passion for software development and impactful digital solutions.
-    </p>
-    <p>
-        I specialize in full-stack development using the <strong>MERN stack</strong> and have a strong foundation in <strong>Java</strong>, <strong>Data Structures & Algorithms</strong>, and <strong>Object-Oriented Programming</strong>.
-    </p>
-    <p>
-        My work includes real-world applications currently used by Indian Railways and educational institutions. One of my deployed platforms receives over <strong>100 daily users</strong> and garners 5,000–10,000 monthly visits. I also built <em>Glance</em>, a dynamic, personalized bookmark manager designed as a better alternative to Chrome’s native system.
-    </p>
-    <p>
-        I’m detail-oriented, organized, and consistent — always aiming for clean code, smooth UI/UX, and high performance. Whether it's designing intuitive interfaces or building scalable backend logic, I enjoy delivering complete, production-grade products.
-    </p>
-    <p>
-        Outside of coding, I spend time sketching UI concepts, planning in Notion, staying up to date with tech trends, and refining my development workflows.
-    </p>
-    <p>
-        I'm always looking to contribute to meaningful projects, collaborate with talented teams, and continuously grow as a developer.
-    </p>
-    <p><strong>Let’s build something amazing together!</strong></p>
-</section>
+              <div className="timeline-item">
+                <div className="timeline-dot" />
+                <div className="timeline-date">2021 - 2025</div>
+                <div className="timeline-card">
+                  <div className="timeline-inst">Vellore Institute of Technology</div>
+                  <div className="timeline-degree">B.Tech in Computer Science and Engineering</div>
+                  <span className="timeline-grade">CGPA: 8.08 / 10 (Graduated 2025)</span>
+                </div>
+              </div>
 
+              <div className="timeline-item">
+                <div className="timeline-dot" />
+                <div className="timeline-date">2020 - 2021</div>
+                <div className="timeline-card">
+                  <div className="timeline-inst">Brilliant Public School, Bilaspur</div>
+                  <div className="timeline-degree">Class 12 (CBSE Board)</div>
+                  <span className="timeline-grade">Grade: 80.4%</span>
+                </div>
+              </div>
 
-            <div className='education'>
-                <div className='heading'>Educational Background</div>
-                <br />
-                <ul>
-                    <li style={{ animationDelay: '0.1s' }}>
-                        <label>Vellore Institute of Technology, Vellore</label>
-                        <div className='Academic'>
-                            <div className='Academic-detail'>
-                                Computer Science and Engineering
-                                <year>2021 - 2025</year>
-                                <p>CGPA - 8.08</p>
-                            </div>
-                            <div className='Academic-img'>
-                            <img src={Vtop} alt='...' />
-                            </div>
+              <div className="timeline-item">
+                <div className="timeline-dot" />
+                <div className="timeline-date">2018 - 2019</div>
+                <div className="timeline-card">
+                  <div className="timeline-inst">Brilliant Public School, Bilaspur</div>
+                  <div className="timeline-degree">Class 10 (CBSE Board)</div>
+                  <span className="timeline-grade">Grade: 84%</span>
+                </div>
+              </div>
 
-                        </div>
-                    </li>
-                    <li style={{ animationDelay: '0.2s' }}>
-                        <label>Brilliant Public School, Bilaspur</label>
-                        <div className='Academic'>
-                            <div className='Academic-detail'>
-                                Class 12
-                                <year>2020 - 2021</year>
-                                <p>Percentage - 80.4%</p>
-                            </div>
-                            <div className='Academic-img'>
-                                <img src={Brilliant} alt='...' />
-                            </div>
-
-                        </div>
-                    </li>
-                    <li style={{ animationDelay: '0.3s' }}>
-                        <label>Brilliant Public School, Bilaspur</label>
-                        <div className='Academic'>
-                            <div className='Academic-detail'>
-                                Class 10
-                                <year>2018 - 2019</year>
-                                <p>Percentage - 84%</p>
-                            </div>
-                            <div className='Academic-img'>
-                                <img src={Brilliant} alt='...' />
-                            </div>
-
-                        </div>
-                    </li>
-                </ul>
             </div>
-
-            <div className='skills'>
-                <div className='heading'>Skills & Expertise</div>
-                <ul>
-                    <li>
-                        <div className='image'>
-                            <img src='https://www.macworld.com/wp-content/uploads/2023/01/learn_java_on_mac.jpg?quality=50&strip=all' alt='...' />
-                            <img src='https://png.pngtree.com/png-vector/20220531/ourmid/pngtree-concept-icon-with-blue-gradient-for-data-structures-and-algorithms-vector-png-image_46896760.jpg' alt='...' />
-                        </div>
-                        <label>Java & DSA</label>
-                        <p>I have developed strong skills in Java and DSA, improving my problem-solving and coding efficiency.</p>
-                    </li>
-                    <li>
-                        <div className='image'>
-                            <img src='https://cdn.pixabay.com/photo/2019/10/09/07/28/development-4536630_640.png' alt='...' />
-                        </div>
-                        <label>Web Development</label>
-                        <p>I have strong full-stack web development skills, working with both front-end and back-end technologies.</p>
-                    </li>
-                    <li>
-                        <div className='image'>
-                            <img src='https://github.blog/wp-content/uploads/2013/04/074d0b06-a5e3-11e2-8b7f-9f09eb2ddfae.jpg?resize=1234%2C701' alt='...' />
-                            <img src='https://www.svgrepo.com/show/327408/logo-vercel.svg' alt='...' />
-                        </div>
-                        <label>Tools</label>
-                        <p>I am proficient in using tools like Git, GitHub, Vercel, Notion, and Google Calendar for version control, deployment, and task management.</p>
-                    </li>
-                </ul>
-            </div>
-
-            {/* <Footer /> */}
+          </motion.div>
         </div>
-    )
+
+        {/* Skills Section */}
+        <motion.div className="skills-container" variants={itemVariants}>
+          <h3 className="timeline-title" style={{ marginBottom: '40px' }}>Skills & Expertise</h3>
+          <div className="skills-groups">
+            {skillGroups.map((group, gIdx) => (
+              <div className="skills-group-card" key={gIdx}>
+                <div className="skills-group-title">
+                  {group.icon}
+                  {group.title}
+                </div>
+                <div className="skills-list">
+                  {group.skills.map((skill, sIdx) => (
+                    <span className="skill-tag" key={sIdx}>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </motion.div>
+    </div>
+  );
 }

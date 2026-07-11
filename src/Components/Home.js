@@ -1,121 +1,101 @@
-import React, { useState } from 'react'
-import vinayvamsheeResume from './Vinay Vamshee Resume.pdf'
-import vinayvamshee from './Screenshot 2024-12-15 at 9.28.44 PM.png'
-import Footer from './Footer';
-
+import React from 'react';
+import { motion } from 'framer-motion';
+import { NavLink } from 'react-router-dom';
+import vinayvamsheeResume from './Vinay Vamshee Resume.pdf';
+import vinayvamshee from './Screenshot 2024-12-15 at 9.28.44 PM.png';
 
 export default function Home() {
-    const [rotation, setRotation] = useState(0);
-    const [timer, setTimer] = useState(null); // For storing timeout ID
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
+    }
+  };
 
-    const handleMouseMove = (e) => {
-        // Clear the previous timer whenever the mouse moves
-        if (timer) {
-            clearTimeout(timer);
-        }
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
 
-        const { clientX, clientY } = e;
-        const imageCenter = e.currentTarget.getBoundingClientRect();
-        const offsetX = clientX - imageCenter.left - imageCenter.width / 2;
-        const offsetY = clientY - imageCenter.top - imageCenter.height / 2;
+  return (
+    <div className="hero-wrapper">
+      <div className="noise-overlay" />
+      <div className="ambient-glow">
+        <div className="glow-1" />
+        <div className="glow-2" />
+      </div>
 
-        // Calculate the angle between the mouse position and the center of the image
-        let angle = Math.atan2(offsetY, offsetX) * (180 / Math.PI);
-
-        angle = -angle;
-
-        // Limit the rotation angle range (e.g., between -15deg and 15deg)
-        const limitedAngle = Math.max(-30, Math.min(30, angle));
-
-        // Apply the limited angle
-        setRotation(limitedAngle);
-
-        const newTimer = setTimeout(() => {
-            setRotation(0); // Reset rotation to 0 degrees
-        }, 3000); // Reset after 3 seconds of no movement
-
-        setTimer(newTimer);
-    };
-
-
-    return (
-        <div className='HomePage'>
-            <div id="home" className='home'>
-
-                <div className='intro'>
-                    <name>
-                        <span>I</span>
-                        <span>'</span>
-                        <span>m</span>
-                        <span>&nbsp; </span>
-                        <div className='Name'>
-                            <span>V</span>
-                            <span>i</span>
-                            <span>n</span>
-                            <span>a</span>
-                            <span>y</span>
-                            <span>&nbsp; </span>
-                            <span>V</span>
-                            <span>a</span>
-                            <span>m</span>
-                            <span>s</span>
-                            <span>h</span>
-                            <span>e</span>
-                            <span>e</span>
-                            <span>.</span>
-                        </div>
-                    </name>
-                    <designation>Full Stack Developer</designation>
-                    <div className='devtools'>
-                        <img style={{ animationDelay: '0.1s' }} src='https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png' alt='...' />
-                        <img style={{ animationDelay: '0.3s' }} src='https://static-00.iconduck.com/assets.00/node-js-icon-454x512-nztofx17.png' alt='...' />
-                        <img style={{ animationDelay: '0.5s' }} src='https://www.manektech.com/storage/developer/1646733543.webp' alt='...' />
-                        <img style={{ animationDelay: '0.7s' }} src='https://i.pinimg.com/originals/b2/31/7e/b2317e8174e5fcef57c74c662f57d155.png' alt='...' />
-                    </div>
-
-                    <div className='info'>
-                        <a href={vinayvamsheeResume} download="Vinay_Vamshee_CV.pdf" className='btn downloadCV'>Download CV<img src='https://static.vecteezy.com/system/resources/previews/019/879/209/non_2x/download-button-on-transparent-background-free-png.png' alt='...' /></a>
-                        <div className='contact'>
-                            <a href="tel:+91752397404">Call Me</a>
-                            <a href="mailto:vinayvamshee2183@gmail.com">Mail Me</a>
-                        </div>
-                    </div>
-                </div>
-                <div className='profilePic' onMouseMove={handleMouseMove}>
-                    <img src={vinayvamshee} alt='...' style={{
-                        transform: `rotate(${rotation}deg)`, /* Apply the limited rotation */
-                        transition: 'transform 0.6s ease-in-out', /* Smooth rotation transition */
-                    }}
-                    />
-                </div>
-
+      <motion.div 
+        className="hero-grid"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="hero-left">
+          <motion.div className="hero-tag" variants={itemVariants}>
+            Salesforce Developer & Full Stack Architect
+          </motion.div>
+          
+          <motion.h1 className="hero-title" variants={itemVariants}>
+            Creating enterprise software <br />
+            with exceptional user experiences.
+          </motion.h1>
+          
+          <motion.p className="hero-desc" variants={itemVariants}>
+            Hi, I'm <strong>Vinay Vamshee</strong>. I am a Salesforce Developer and Full Stack Engineer. I build scalable software platforms, enterprise school ERPs, metadata-driven business operating systems, and dynamic SaaS architectures.
+          </motion.p>
+          
+          <motion.div className="hero-buttons" variants={itemVariants}>
+            <NavLink to="/Projects" className="btn-primary">
+              View Showcase
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
+              </svg>
+            </NavLink>
+            <a href={vinayvamsheeResume} download="Vinay_Vamshee_Resume.pdf" className="btn-secondary">
+              Download CV
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.5 2C7.77614 2 8 2.22386 8 2.5V8.29289L10.1464 6.14645C10.3417 5.95118 10.6583 5.95118 10.8536 6.14645C11.0488 6.34171 11.0488 6.65829 10.8536 6.85355L7.85355 9.85355C7.65829 10.0488 7.34171 10.0488 7.15355 9.85355L4.14645 6.85355C3.95118 6.65829 3.95118 6.34171 4.14645 6.14645C4.34171 5.95118 4.65829 5.95118 4.85355 6.14645L7 8.29289V2.5C7 2.22386 7.22386 2 7.5 2ZM2 11.5C2 11.2239 2.22386 11 2.5 11H12.5C12.7761 11 13 11.2239 13 11.5C13 11.7761 12.7761 12 12.5 12H2.5C2.22386 12 2 11.7761 2 11.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
+              </svg>
+            </a>
+          </motion.div>
+          
+          <motion.div className="hero-stats" variants={itemVariants}>
+            <div className="stat-item">
+              <span className="stat-num cyan">7+</span>
+              <span className="stat-label">Active Products</span>
             </div>
-
-            <div className='social'>
-                <a href='https://leetcode.com/u/VinayVamshee/' target='_blank' rel="noreferrer" className='contact'>
-                    LeetCode
-                    <img src='https://miro.medium.com/v2/resize:fit:512/1*ymdLUYayjisO2uU47lOI0A.png' alt='...' />
-                </a>
-                <a href='https://github.com/VinayVamshee' target='_blank' rel="noreferrer" className='contact'>
-                    Github
-                    <img src='https://cdn-icons-png.flaticon.com/512/25/25231.png' alt='...' />
-                </a>
-                <a href='https://in.linkedin.com/in/pechetti-vinay-vamshee-251245231' target='_blank' rel="noreferrer" className='contact'>
-                    LinkedIn
-                    <img src='https://static.vecteezy.com/system/resources/previews/016/716/470/non_2x/linkedin-icon-free-png.png' alt='...' />
-                </a>
-                <a href='https://www.instagram.com/vinayvamshee/?igsh=cnJrM3g0Z3c1OXZ4' target='_blank' rel="noreferrer" className='contact'>
-                    Instagram
-                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png' alt='...' />
-                </a>
-                <a href='https://www.facebook.com/VinayVamshee/' target='_blank' rel="noreferrer" className='contact'>
-                    Facebook
-                    <img src='https://store-images.s-microsoft.com/image/apps.37935.9007199266245907.b029bd80-381a-4869-854f-bac6f359c5c9.91f8693c-c75b-4050-a796-63e1314d18c9?h=210' alt='...' />
-                </a>
+            <div className="stat-item">
+              <span className="stat-num">100+</span>
+              <span className="stat-label">Daily Live Users</span>
             </div>
-            <div className='foot'>
-                <Footer />
+            <div className="stat-item">
+              <span className="stat-num purple">5K+</span>
+              <span className="stat-label">Monthly Visits</span>
             </div>
+          </motion.div>
         </div>
-    )
+
+        <motion.div 
+          className="hero-right"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+        >
+          <div className="portrait-glow-container">
+            <img src={vinayvamshee} alt="Vinay Vamshee" className="portrait-img" />
+            <div className="portrait-ambient-glow" />
+          </div>
+        </motion.div>
+      </motion.div>
+    </div>
+  );
 }

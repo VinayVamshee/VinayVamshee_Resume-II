@@ -1,690 +1,486 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Footer from './Footer'
-import CCC from './Images/CCC-Page.png'
-import IRWSI from './Images/IRWSI-Page.png'
-import RRR from './Images/RRR-Page.png'
-import ABC from './Images/Screenshot 2025-12-21 at 17.31.04.png'
-import VTS from './Images/VTS-Page.png'
-import Helmet from './Images/Helmet.png'
-import MaguvasCover from './Images/Screenshot 2025-06-11 at 11.59.16.png'
+import { motion } from 'framer-motion';
+
+// Import images
+import CCC from './Images/CCC-Page.png';
+import IRWSI from './Images/IRWSI-Page.png';
+import RRR from './Images/RRR-Page.png';
+import ABC from './Images/Screenshot 2025-12-21 at 17.31.04.png';
+import Helmet from './Images/Helmet.png';
+import MaguvasCover from './Images/Screenshot 2025-06-11 at 11.59.16.png';
 
 export default function Projects() {
-    useEffect(() => {
+  const navigate = useNavigate();
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("show");
-                    } else {
-                        entry.target.classList.remove("show"); // Remove if you want elements to re-animate on scroll
-                    }
-                });
-            },
-            { threshold: 0.2 } // Adjust visibility trigger (0 = when barely visible, 1 = fully visible)
-        );
-
-        const items = document.querySelectorAll(".websites .website");
-        items.forEach((item) => observer.observe(item));
-
-        return () => {
-            items.forEach((item) => observer.unobserve(item));
-        };
-    }, []);
-
-    const [websites] = useState([
-        {
-            id: 'CCC-SECR-BSP',
-            imageSrc: CCC,
-            liveUrl: 'https://ccc-secr-bsp.vercel.app/',
-            name: 'CCC SECR BSP',
-            githubUrl: 'https://github.com/VinayVamshee/Project-CCC-SECR-BSP.git',
-            description: 'A live web platform for station employees to manage books, videos, notices, and contacts, with admin controls for content management.',
-            moreImages: [
-                'https://i.ibb.co/1JjKDpxh/Screenshot-2025-06-11-at-00-08-46.png',
-                'https://i.ibb.co/Wv66xR4N/Screenshot-2025-06-11-at-00-08-35.png',
-                'https://i.ibb.co/CpZ3WvNC/Screenshot-2025-06-11-at-00-08-59.png',
-                'https://i.ibb.co/6cdYFhgb/Screenshot-2025-06-11-at-00-09-09.png'
-            ],
-            fullDetails: {
-                intro: `CCC-SECR-BSP is a comprehensive web platform built for the employees of Bilaspur Railway Station. It centralizes key resources like books, technical and safety videos, and a staff contact directory. The platform facilitates smooth communication through a notice board and features a gallery to highlight station events. Designed with user-friendly animations and theme switching, CCC-SECR-BSP enhances the daily work experience for railway staff. The project supports admin management for all content and user feedback, including Excel export of the contact directory.`,
-
-                description: `CCC-SECR-BSP (Crew Communication & Content Center) is an internal web platform designed for railway staff working at Bilaspur Station. It provides a centralized, digital-first environment where information can be accessed and managed efficiently.`,
-
-                features: {
-                    userFeatures: [
-                        '📚 Station Library with downloadable books and categorized manuals',
-                        '🎥 Safety & Technical Videos with embedded players and category filters',
-                        '📇 Station Contact Directory with full search and Excel download',
-                        '📌 Admin-controlled Notice Board with timestamps and sorting',
-                        '🖼️ Event Gallery with carousel/grid view and auto-sorting',
-                        '🌓 Light/Dark Theme toggle with local storage persistence',
-                        '🔔 In-app Notifications for new notices and alerts'
-                    ],
-                    adminFeatures: [
-                        '🔐 Secure Admin Authentication with session management',
-                        '🛠️ Full CMS (Create, Read, Update, Delete) for books, videos, contacts, gallery, and notices',
-                        '📤 Excel Export of contact directory (.xlsx format)',
-                        '📝 Feedback Management to handle staff suggestions',
-                        '📢 Push Notifications system with badge counters (Feb 2025 update)'
-                    ]
-                },
-
-                techStack: {
-                    frontend: 'React, CSS3 (with animations), JavaScript',
-                    backend: 'Node.js, Express.js',
-                    database: 'MongoDB Atlas',
-                    auth: 'JWT-based login for Admin',
-                    deployment: {
-                        frontend: 'Vercel',
-                        backend: 'Vercel',
-                    },
-                    versionControl: 'Git + GitHub'
-                },
-
-                timeline: [
-                    { date: '9 Jan 2024', activity: 'Project start – setup frontend and backend' },
-                    { date: '16 Jan 2024', activity: 'Initial deployment of core platform' },
-                    { date: '1 Feb 2025', activity: 'Added admin/user notification feature' }
-                ],
-
-                requirements: {
-                    functionalRequirements: [
-                        '📘 Book Library module with upload, preview, and categorized display',
-                        '🎬 Video module with upload, embed view, and category filters',
-                        '📇 Contact Directory with full-text search and downloadable Excel export',
-                        '📝 Notice Board with admin-controlled content and timestamps',
-                        '🖼️ Gallery module supporting image uploads and modal view',
-                        '🔐 Admin login system with session-based access control',
-                        '📤 CMS support for managing all content types',
-                        '🔔 Notification system with badge counter and dismiss timer',
-                        '📣 Feedback module for user suggestions'
-                    ],
-                    nonFunctionalRequirements: [
-                        '🌓 Responsive UI with theme toggle (light/dark)',
-                        '⚡ Smooth animations for all UI transitions',
-                        '📱 Mobile and tablet responsive layout',
-                        '📎 Upload support for images, PDFs, and documents URLs',
-                        '✅ Fallback handling for empty or missing data',
-                        '🚀 Hosting on Vercel (frontend) and Vercel (backend)',
-                        '🔗 MongoDB Atlas integration with secure connection',
-                        '🧪 Manual testing across devices and browsers',
-                        '🧾 Environment variable setup for production security'
-                    ]
-                },
-
-                explanation: `CCC-SECR-BSP digitizes internal communication at Bilaspur Station, replacing physical files and fragmented WhatsApp-based updates. Employees can download training books, stream approved videos, find any coworker’s contact, and receive real-time admin notices—all in one place.  
-From the admin side, all modules are managed via a secure dashboard, including content control, Excel exports, and in-app feedback.  
-The project was built in a week, later upgraded with real-time alerts. CCC now acts as the central communication hub for station operations.`
-            }
+  const [websites] = useState([
+    {
+      id: 'SSS',
+      imageSrc: "https://i.ibb.co/7xm0Ls1M/Screenshot-2025-04-06-at-17-49-30.png",
+      liveUrl: 'https://sss-school-scholastic-system.vercel.app/',
+      name: 'School Scholastic System (SSS)',
+      githubUrl: 'https://github.com/VinayVamshee/SSS-School-Scholastic-System.git',
+      description: 'An enterprise-grade School ERP platform designed to digitize and streamline every aspect of academic and administrative operations using a metadata-driven architecture.',
+      tag: 'Enterprise School Management Platform',
+      colorGlow: 'rgba(161, 0, 255, 0.08)',
+      moreImages: [
+        "https://i.ibb.co/TBkZPkRm/Screenshot-2025-06-11-at-00-11-23.png",
+        "https://i.ibb.co/tMcRMGdW/Screenshot-2025-06-11-at-00-11-35.png",
+        "https://i.ibb.co/270QDDZM/Screenshot-2025-06-11-at-00-12-17.png",
+        "https://i.ibb.co/Z6nQfT1M/Screenshot-2025-06-11-at-00-12-39.png"
+      ],
+      fullDetails: {
+        intro: `School Scholastic System (SSS) is an enterprise-grade School ERP platform designed to digitize and streamline every aspect of academic and administrative operations. Built using the MERN stack, the platform follows a scalable, metadata-driven architecture that allows schools to configure forms, workflows, and academic structures dynamically without requiring code changes.`,
+        description: `Unlike traditional school management systems that rely on hardcoded modules, SSS provides a highly configurable platform where administrators can manage students, classes, academic years, examinations, fees, admissions, promotions, attendance, report cards, and organizational settings from a centralized dashboard.`,
+        features: {
+          userFeatures: [
+            '👨‍🎓 Student enrollment with full details: Name, DOB, Aadhar, Class, Section, Guardian bio, and photo',
+            '✏️ Fully editable profiles post enrollment',
+            '📥 Downloadable fee receipts and payment logs',
+            '🖥️ Clean, responsive UI with grid and list toggles'
+          ],
+          adminFeatures: [
+            '🛠️ Master Data control (School name, logo, address reflected site-wide)',
+            '⚙️ Student lifecycle management: Promotion engines, dropouts logging, and automated TC generation',
+            '💰 Year-wise fee structure configurations & payment tracking',
+            '📊 Expected vs. collected fee analytics & Excel reports export'
+          ]
         },
-        {
-            id: 'MAGUVAS-COLLECTION',
-            imageSrc: MaguvasCover,
-            liveUrl: 'https://mallikas-store.vercel.app/',
-            name: 'Maguva’s Collection',
-            githubUrl: 'https://github.com/VinayVamshee/Mallikas-Store.git',
-            description: 'A boutique-style women’s fashion e-commerce app featuring product filters, manual payments, and a full admin dashboard for inventory and order management.',
-            moreImages: [
-                'https://i.ibb.co/MkVJVTrb/Screenshot-2025-06-09-at-22-37-21.png',
-                'https://i.ibb.co/0RRTHvdD/Screenshot-2025-06-11-at-12-02-56.png',
-                'https://i.ibb.co/rPP4s2p/Screenshot-2025-06-11-at-12-03-55.png',
-                'https://i.ibb.co/f5whnXb/Screenshot-2025-06-11-at-12-04-04.png',
-                'https://i.ibb.co/RG5yCTxy/Screenshot-2025-06-11-at-12-04-13.png',
-                'https://i.ibb.co/qMLrdC1D/Screenshot-2025-06-11-at-12-04-35.png',
-                'https://i.ibb.co/7xpsXgvh/Screenshot-2025-06-11-at-12-03-19.png'
-            ],
-            fullDetails: {
-                intro: `Maguva’s Collection is a boutique-style, full-stack e-commerce web app focused on women's fashion. It enables users to browse apparels and accessories, apply filters, and place orders using a simple QR-based payment method. Built in just 4 days using free-tier tools, the platform provides full admin control over products, categories, and orders, making it ideal for small-scale fashion businesses.`,
-
-                description: `Maguva’s Collection is a mobile and desktop-compatible e-commerce platform built for women's fashion. It supports user login, product filtering, cart functionality, and manual payment workflows. An integrated admin panel provides CRUD controls over products, categories, and order tracking.`,
-
-                features: {
-                    userFeatures: [
-                        '🛍️ Homepage with New Arrivals carousel',
-                        '👗 Category browsing: Apparels & Accessories',
-                        '🔍 Product search by name',
-                        '🎯 Filter by size, color, category',
-                        '↕️ Sort by price (Low/High) or date (Newest/Oldest)',
-                        '🖼️ Hover effect on product cards to view alternate images',
-                        '📄 Product detail page with description, price, and options',
-                        '🧺 Add to Cart with quantity selection',
-                        '👤 User login to access cart & orders',
-                        '🛒 View & manage cart (remove items, checkout)',
-                        '📦 Order history with status: Pending / Delivered / Cancelled',
-                        '🚫 Graceful handling of empty or loading states'
-                    ],
-                    adminFeatures: [
-                        '🔐 Admin login system',
-                        '📊 Dashboard for managing Apparels & Accessories separately',
-                        '📦 Add/Edit/Delete products, sizes, colors, categories',
-                        '🧾 Orders panel with delivery status and payment method input',
-                        '📉 Out-of-stock toggle for products'
-                    ]
-                },
-
-                techStack: {
-                    frontend: 'React, CSS (with Bootstrap)',
-                    backend: 'Node.js, Express.js',
-                    database: 'MongoDB Atlas',
-                    auth: 'JWT for User & Admin login',
-                    deployment: {
-                        frontend: 'Vercel',
-                        backend: 'Vercel',
-                    },
-                    versionControl: 'Git + GitHub'
-                },
-
-                timeline: [
-                    { date: '2 June 2025', activity: 'Frontend UI and backend server setup' },
-                    { date: '3 June 2025', activity: 'Backend models/routes (products, users, cart, orders)' },
-                    { date: '4 June 2025', activity: 'Frontend-backend integration, user & admin flows' },
-                    { date: '5 June 2025', activity: 'Testing, animations, final UI polishing, deployment' }
-                ],
-
-                requirements: {
-                    functionalRequirements: [
-                        '🛍️ Dynamic product listing by category',
-                        '🔎 Filter and sort functionality',
-                        '🛒 Add to cart and place order',
-                        '👤 User registration & login',
-                        '📦 Order tracking with status',
-                        '🧰 Admin CRUD for inventory & categories',
-                        '📤 Manual payment flow with QR code',
-                        '📆 Admin entry for delivery & payment info'
-                    ],
-                    nonFunctionalRequirements: [
-                        '📱 Responsive for mobile and desktop',
-                        '🖼️ Interactive hover UI on product cards',
-                        '🌐 Free-tier hosting with environment config',
-                        '🧪 Manual testing for stability across devices',
-                        '📎 Fallback UI for errors or empty content'
-                    ]
-                },
-
-                explanation: `Maguva’s Collection was built as a learning project to understand and implement complete e-commerce functionality in a real-world context. While the app currently fetches sample/random data, it is fully functional and scalable for live use.
-
-Its backend supports multiple admin controls, order tracking, and full product categorization. The absence of an online payment gateway was intentional—to simulate a boutique model where admins can handle payments manually using QR codes.
-
-With features like product filtering, sorting, admin panel, order status updates, and responsive UI, this project delivers an end-to-end understanding of how scalable fashion e-commerce platforms are built.`
-            }
+        techStack: {
+          frontend: 'React.js, Bootstrap, Tailwind CSS, Javascript',
+          backend: 'Node.js, Express.js',
+          database: 'MongoDB',
+          auth: 'JWT (JSON Web Token)',
+          deployment: {
+            frontend: 'Vercel',
+            backend: 'Vercel'
+          }
         },
-        {
-            id: 'ABC',
-            imageSrc: ABC, // replace with your main cover image import
-            liveUrl: '', // keep empty if not publicly hosted yet
-            name: 'ABC – Aneesh Business Console',
-            githubUrl: 'https://github.com/VinayVamshee/Project-ABC.git',
-            description: 'A full-fledged business management console for handling inventory, orders, selling, billing, payments, and customer data using a fully dynamic field engine.',
-            moreImages: [
-                'https://i.ibb.co/XXXXXXX/abc-1.png',
-                'https://i.ibb.co/XXXXXXX/abc-2.png',
-                'https://i.ibb.co/XXXXXXX/abc-3.png',
-                'https://i.ibb.co/XXXXXXX/abc-4.png'
-            ],
-            fullDetails: {
-                intro: `ABC (Aneesh Business Console) is a modular, dynamic business management platform designed to handle real-world trading workflows. It manages inventory, customer orders, direct sales, billing, payments, and customer records with a single unified system. The platform is built with flexibility at its core — all product, order, and customer fields are admin-defined, making it adaptable to multiple business types such as jewellery, electronics, or retail.`,
-
-                description: `ABC is a full-stack MERN application focused on real business operations. It eliminates hardcoded forms and replaces them with a dynamic field engine, allowing admins to control every data structure from the backend. From stock entry to final billing, the system enforces strict data flow rules to avoid inconsistencies and supports partial payments, profit calculation, and detailed transaction tracking.`,
-
-                features: {
-                    userFeatures: [
-                        '📦 Dynamic Inventory management with admin-defined fields',
-                        '🧾 Order creation with customer and product details',
-                        '💰 Buying cost price tracking for orders and inventory',
-                        '🏷️ Direct selling from inventory or completed orders',
-                        '🧮 Automatic final price and profit calculation',
-                        '👤 Customer details captured dynamically at time of sale',
-                        '💳 Multiple payment entries per bill with history tracking',
-                        '📊 Unified overview tables with search, filters, and sorting',
-                        '🖼️ Image uploads for products, orders, and customers',
-                        '🌓 Light (Gold) and Dark (Silver) theme support'
-                    ],
-                    adminFeatures: [
-                        '🔐 Secure admin authentication using JWT',
-                        '🛠️ Dynamic field engine (no hardcoded forms)',
-                        '📋 Full CRUD control over inventory, orders, and sold records',
-                        '🧾 Auto-generated billing IDs with sequence control',
-                        '📤 Excel export support for financial and business data',
-                        '📌 Status-based workflows for orders and sold bills',
-                        '🧠 Strict sell-source enforcement (Inventory OR Order)',
-                        '🧮 Automatic payment status handling (Pending / Partial / Paid)'
-                    ]
-                },
-
-                techStack: {
-                    frontend: 'React, CSS3 (custom luxury UI), JavaScript',
-                    backend: 'Node.js, Express.js',
-                    database: 'MongoDB',
-                    auth: 'JWT-based Admin Authentication',
-                    fileHandling: 'ImgBB for image uploads',
-                    deployment: {
-                        frontend: 'Vercel (planned)',
-                        backend: 'Vercel (planned)',
-                    },
-                    versionControl: 'Git + GitHub'
-                },
-
-                timeline: [
-                    { date: '9 Nov 2024 (Sunday)', activity: 'Project kickoff, database schema design, dynamic field engine planning' },
-                    { date: 'Mid Nov 2024', activity: 'Inventory module, order module, backend APIs, frontend integration' },
-                    { date: 'Late Nov 2024', activity: 'Selling workflow, billing logic, payment handling, profit calculation' },
-                    { date: 'Early Dec 2024', activity: 'Overview panel, TopPanel filters, theming, UI refinements' },
-                    { date: '21 Dec 2024 (Sunday)', activity: 'Core system completed (Dashboard pending)' }
-                ],
-
-                requirements: {
-                    functionalRequirements: [
-                        '📦 Inventory module with dynamic product fields',
-                        '🧾 Orders module with status workflow',
-                        '💰 Buying & selling price tracking',
-                        '🧮 Profit and payment calculations',
-                        '👤 Dynamic customer data capture',
-                        '💳 Multi-payment support per bill',
-                        '🖼️ Image uploads for inventory, orders, and sold records',
-                        '📊 Unified overview with filters and sorting',
-                        '📤 Excel export functionality'
-                    ],
-                    nonFunctionalRequirements: [
-                        '🌓 Light/Dark theme support',
-                        '⚡ Smooth UI interactions and transitions',
-                        '📱 Responsive layout for desktop and tablet',
-                        '🔐 Secure JWT-based authentication',
-                        '🧠 Strict data flow and validation rules',
-                        '🧾 Clean, modular code structure',
-                        '🚀 Deployment-ready configuration',
-                        '🔗 MongoDB integration with scalable schema design'
-                    ]
-                },
-
-                explanation: `ABC was built to replicate and improve real-world business workflows where inventory, orders, and sales are tightly connected. Unlike basic CRUD systems, ABC enforces strict selling rules, supports partial payments, and maintains accurate profit calculations.  
-The dynamic field engine allows the same system to adapt to multiple business domains without code changes.  
-With its unified overview panels, detailed payment history, and theme-based UI, ABC serves as a solid foundation for small to mid-scale business management. The dashboard and analytics layer are planned as the final enhancement.`
-            }
+        timeline: [
+          { date: '16 Feb 2025', activity: 'Initial planning, database schema design, and kickoff' },
+          { date: '17-20 Feb 2025', activity: 'Developed database schema, base layout UI, and student forms' },
+          { date: '21-23 Feb 2025', activity: 'Core backend APIs, first frontend integration, and Initial Deployment' },
+          { date: '21-29 Mar 2025', activity: 'Major visual redesign, multiple themes, and animations' },
+          { date: '30 Mar 2025', activity: 'Visual Upgrade Deployment with full mobile responsiveness' }
+        ],
+        requirements: {
+          functionalRequirements: [
+            '✅ Student enrollment with photo uploads via ImgBB',
+            '✅ Session promotion and TC dropouts workflow',
+            '✅ Payment records collection and receipts'
+          ],
+          nonFunctionalRequirements: [
+            '📱 Multi-theme support (Light/Dark toggles)',
+            '⚡ Reusable and clean modular component structure'
+          ]
         },
-        {
-            id: 'RRR-SECR',
-            imageSrc: RRR,
-            liveUrl: 'https://rrr-secr.vercel.app/',
-            name: 'Railway Running Rooms',
-            githubUrl: 'https://github.com/VinayVamshee/Railway_Running_Rooms.git',
-            description: 'A project that digitizes and streamlines staff room management, automating occupancy tracking and data management across multiple stations.',
-            moreImages: [
-                'https://i.ibb.co/58jbrDV/Screenshot-2024-12-12-at-12-57-48-PM.png',
-                'https://i.ibb.co/PjGRJR7/Screenshot-2024-12-12-at-12-58-20-PM.png',
-                'https://i.ibb.co/pbfLGC0/Screenshot-2024-12-12-at-12-58-52-PM.png',
-            ],
-            fullDetails: {
-                features: {
-                    userFeatures: [
-                        "🚶‍♂️ Staff login (optional depending on implementation)",
-                        "📋 View room availability and booking status (if implemented)",
-                        "📅 Access historical data on stays and arrivals (read-only)"
-                    ],
-                    adminFeatures: [
-                        "➕ Add, edit, and delete railway stations",
-                        "🏢 Manage buildings within each station",
-                        "🛏️ Configure rooms and their capacity/status",
-                        "🕒 Track staff arrivals and departures in real time",
-                        "🟩🟥 View room occupancy status with a clear visual color code",
-                        "📤 Download detailed Excel reports of occupancy and arrivals",
-                        "📈 Analyze daily and monthly peak hour statistics for better planning",
-                        "👥 Multi-user access to handle different stations and users"
-                    ]
-                },
-                requirements: {
-                    functionalRequirements: [
-                        "✅ Create admin login system with authentication",
-                        "🏢 Add/manage multiple railway stations",
-                        "🏬 Manage buildings within stations",
-                        "🛏️ Add and configure rooms with occupancy status",
-                        "🕒 Track staff arrivals and departures",
-                        "🖼️ Visual room occupancy map with color coding (red=occupied, green=available)",
-                        "📊 Generate downloadable Excel reports of room occupancy and arrival data",
-                        "📈 Track and display peak daily/monthly arrival hours"
-                    ],
-                    nonFunctionalRequirements: [
-                        "📱 Responsive UI with theme support (pending)",
-                        "🚀 Deploy frontend and backend on Vercel/Vercel",
-                        "🔐 Secure login with JWT or sessions",
-                        "📦 Excel report generation using ExcelJS"
-                    ],
-                    optionalFeatures: [
-                        "👤 Optional: Staff user login and room booking interface",
-                        "🔔 Optional: Notifications for room status changes"
-                    ]
-                },
-                techStack: {
-                    frontend: "React with CSS (Bootstrap or Tailwind)",
-                    backend: "Node.js with Express.js",
-                    database: "MongoDB (Atlas free tier)",
-                    auth: "JWT-based or session-based login",
-                    deployment: {
-                        frontend: "Vercel",
-                        backend: "Vercel"
-                    },
-                    versionControl: "Git & GitHub"
-                },
-                timeline: [
-                    { date: "5 May 2024", activity: "🎨 Frontend UI design and backend server setup" },
-                    { date: "6 May 2024", activity: "🧱 Backend models and API routes for stations, buildings" },
-                    { date: "7 May 2024", activity: "🛏️ Implement room occupancy logic and admin controls" },
-                    { date: "8 May 2024", activity: "📊 Excel report generation and peak hour analytics" },
-                    { date: "9 May 2024", activity: "🧪 Testing, bug fixes, UI polish, and deployment" }
-                ],
-                explanation: `
-            The RRR system was built to replace the manual, paper-based process traditionally used for managing staff accommodations in railway divisions, which was time-consuming and prone to errors. By providing a digital, centralized system, RRR streamlines tracking staff room occupancy and staff arrivals/departures.
-
-            One of the project's standout features is the visual occupancy map, where room statuses are clearly marked by color, enabling quick assessment by station operators. This feature reduces the time required to allocate rooms and helps avoid double-bookings or errors in manual logs.
-
-            The admin panel’s flexibility allows for multiple stations and buildings to be managed from a single interface, making the tool useful not only for Bilaspur but also scalable to other divisions. The ability to download data in Excel format supports offline record-keeping and auditing, while the peak arrival tracking gives management valuable operational insights to improve resource planning.
-
-            Overall, the project significantly reduces administrative overhead, improves accuracy in accommodation management, and provides actionable data analytics to railway authorities.
-        `
-            }
+        explanation: `SSS emphasizes flexibility through dynamic form generation, configurable master data, and reusable APIs. Its modular architecture enables institutions of different sizes to customize the system according to their operational requirements while maintaining high performance.`
+      }
+    },
+    {
+      id: 'ABC',
+      imageSrc: ABC,
+      liveUrl: '',
+      name: 'ABC – Advanced Business Console',
+      githubUrl: 'https://github.com/VinayVamshee/Project-ABC.git',
+      description: 'A centralized business operating platform designed to manage operational records, transactions, inventory, and dynamic schemas without database rebuilds.',
+      tag: 'Enterprise Business Operating Platform',
+      colorGlow: 'rgba(0, 242, 254, 0.08)',
+      moreImages: [],
+      fullDetails: {
+        intro: `ABC (Advanced Business Console) is a MERN-stack administrative console designed to manage operational records, inventory, and custom billing workflows through a dynamic field-driven architecture.`,
+        description: `By eliminating hardcoded modules, ABC acts as a digital operating system for small-to-medium retail and service businesses. It provides complete control over purchasing, sales, payments, customer registers, and ledger tracking.`,
+        features: {
+          userFeatures: [
+            '📦 Dynamic product creation with admin-defined attributes (weight, size, purity, files)',
+            '🧾 Multi-item order creation independent of stock logs',
+            '💳 Flexible multi-mode payments (Cash, UPI, Card, Exchange) per transaction'
+          ],
+          adminFeatures: [
+            '🛠️ Admin CMS metadata manager (configure inputs, rules, and tables)',
+            '📈 Auto-calculated profit margins (Final Price minus cost price)',
+            '📊 Expected vs. paid summaries and Excel data export'
+          ]
         },
-        // {
-        //     id: 'Vamshee Techno School',
-        //     imageSrc: VTS,
-        //     liveUrl: 'https://vamsheetechnoschoolbsp.vercel.app/',
-        //     name: 'Vamshee Techno School',
-        //     githubUrl: 'https://github.com/VinayVamshee/Project---Techno.git',
-        //     description: 'A clean and responsive school website to showcase events, academics, and public notices with admin management.',
-        //     moreImages: [
-        //         'https://i.ibb.co/99tLzDm1/Screenshot-2025-06-11-at-00-10-47.png',
-        //         'https://i.ibb.co/jNdycKD/Screenshot-2025-06-11-at-00-10-20.png',
-        //     ],
-        //     fullDetails: {
-        //         intro: `Vamshee Techno School (VTS) is a public-facing digital platform designed to represent a school's values, academic resources, and celebration of events. Built with a clean UI, responsive layout, and smooth transitions, it allows students, parents, and visitors to easily access essential school-related content like book lists, timetables, notices, and galleries.`,
-
-        //         description: `VTS serves as an informative and interactive public website for the school. It’s not a management system, but a digital window into the school's environment—highlighting teaching practices, academic structure, and cultural celebrations.`,
-
-        //         features: {
-        //             userFeatures: [
-        //                 '🏫 Homepage introducing the school’s vision and education style',
-        //                 '📅 Academic section with timetables, book lists, and calendars',
-        //                 '📌 Notice board with latest updates for students and parents',
-        //                 '🖼️ Events & Gallery showcasing school events, photos, and videos',
-        //                 '🌓 Theme switcher (Light/Dark) with smooth transitions',
-        //                 '📱 Mobile-friendly design with responsive layout'
-        //             ],
-        //             adminFeatures: [
-        //                 '🔐 Admin panel with secure login',
-        //                 '🛠️ CMS for uploading and managing notices, gallery, and academic data',
-        //                 '📤 Editable fee structure and document links',
-        //                 '📸 Media upload system for gallery (images/videos)'
-        //             ]
-        //         },
-
-        //         techStack: {
-        //             frontend: 'React, CSS3, JavaScript',
-        //             backend: 'NodeJS, ExpressJS',
-        //             database: 'MongoDB Atlas',
-        //             auth: 'JWT-based or session-based login',
-        //             deployment: {
-        //                 frontend: 'Vercel',
-        //                 backend: 'Vercel',
-        //             },
-        //             versionControl: 'Git + GitHub'
-        //         },
-
-        //         timeline: [
-        //             { date: '10th Dec 2023', activity: 'Project Started – Initial UI and homepage layout' },
-        //             { date: '14th Dec 2023', activity: 'Developed events gallery and visuals for celebrations' },
-        //             { date: '18th Dec 2023', activity: 'Academic section: books, timetable, fee structure integrated' },
-        //             { date: '22nd Dec 2023', activity: 'Admin dashboard built for real-time content updates' },
-        //             { date: '24th Dec 2023', activity: 'Implemented UI animations and theme switcher' },
-        //             { date: '26th Dec 2023', activity: 'Project deployed and live to public' }
-        //         ],
-
-        //         requirements: {
-        //             functionalRequirements: [
-        //                 '🏫 Display homepage with mission, values, and welcome section',
-        //                 '📅 Dynamic academic resources with admin-editable entries',
-        //                 '📌 Notices board with date-wise updates',
-        //                 '🖼️ Gallery module with image/video support and titles',
-        //                 '🛠️ Admin login and content management system',
-        //                 '🌓 Toggle for dark/light mode with local preference save'
-        //             ],
-        //             nonFunctionalRequirements: [
-        //                 '📱 Fully responsive layout across devices',
-        //                 '⚡ Fast-loading pages with clean navigation',
-        //                 '🎨 Smooth animations for all UI elements',
-        //                 '🌐 Hosted on Vercel',
-        //                 '🔒 Secure JWT authentication for admin routes',
-        //                 '🔗 SEO-friendly metadata and dynamic image previews'
-        //             ]
-        //         },
-
-        //         explanation: `VTS was created as a modern school presentation website—where visitors can understand the school’s ethos and explore important student-related resources. It merges clarity and visual richness, especially in the Events & Gallery section that builds school credibility by displaying real pictures and videos of activities.  
-        // The academic section provides downloadable resources, timetables, and fee structures, helping reduce confusion for parents.  
-        // Admins can log in to update any document, notice, or gallery post at any time. With smooth transitions, theme toggle, and clear UI design, VTS stands as a polished digital identity for the school.`
-        //     }
-        // },
-        {
-            id: 'Gov-Connect',
-            imageSrc: IRWSI,
-            liveUrl: 'https://vigilance-secr.vercel.app/',
-            name: 'Government Websites',
-            githubUrl: 'https://github.com/VinayVamshee/IRWSI-Indian-Railway-WebsiteS-Information.git',
-            description: 'GovConnect is a platform that gathers all essential government websites in one place and allows users to save their favorite websites, with multi-user support and a search feature.',
-            fullDetails: {
-                features: {
-                    userFeatures: [
-                        "🔐 Multi-user login system",
-                        "🗂️ Categorized bookmarks for organized access",
-                        "🎨 Background customization (color/image/video)",
-                        "🔎 Smooth, animated real-time search",
-                        "🔍 Integrated Google search engine",
-                        "📚 Word-document-style viewer for Drive links (flip-page, zoom, theme, search)",
-                        "🔗 Copy/share public link for any page"
-                    ],
-                    adminFeatures: [
-                        "🛑 Admin Lock to restrict editing/deleting of specific user profiles",
-                        "📦 Admin-curated, pre-filled user profiles for curated resource access",
-                        "📄 IRWSI FlipView: Custom immersive viewer for Google Docs",
-                        "🎧 Page-flipping sound effects, zoom, and search within docs",
-                        "🌐 Branded link viewing within IRWSI — avoids opening Google Drive"
-                    ]
-                },
-                requirements: {
-                    functionalRequirements: [
-                        "✅ Multi-user login & secure auth (JWT)",
-                        "✅ Bookmark management (CRUD)",
-                        "✅ Bookmark categories",
-                        "✅ Real-time animated search",
-                        "✅ Google search integration",
-                        "✅ Custom background (color/image/video)",
-                        "✅ Admin lock mechanism",
-                        "✅ Create & share read-only public profiles",
-                        "✅ IRWSI FlipView for document reading",
-                        "✅ Flip effect, sound, zoom, and search in viewer",
-                        "✅ Embedded document display in public link"
-                    ],
-                    nonFunctionalRequirements: [
-                        "✅ Smooth, responsive, and fast UI",
-                        "✅ Secure role-based access control",
-                        "✅ Scalable backend architecture",
-                        "✅ Clean public link handling and embedding",
-                        "✅ Consistent user experience across devices",
-                        "✅ Quick load times and optimized document rendering"
-                    ]
-                },
-                techStack: {
-                    frontend: "React with Tailwind or CSS (responsive UI, animations)",
-                    backend: "Node.js with Express.js",
-                    database: "MongoDB (Atlas)",
-                    auth: "JWT-based login & role-based access",
-                    deployment: {
-                        frontend: "Vercel",
-                        backend: "Render or Railway"
-                    },
-                    specialTools: [
-                        "🗃️ html-flippage for document flip effect",
-                        "🎨 Custom theme engine for backgrounds",
-                        "🔗 Google Drive integration with embedded viewers"
-                    ]
-                },
-                timeline: [
-                    { date: "March 2024", activity: "🛠️ Initial concept and reusable Glance-based foundation" },
-                    { date: "Early April 2024", activity: "🔐 Multi-user auth and bookmark CRUD system" },
-                    { date: "Mid April 2024", activity: "📄 IRWSI FlipView with embedded flipping document reader" },
-                    { date: "Late April 2024", activity: "🎨 Background customization, search, and admin lock integration" },
-                    { date: "1 May 2024", activity: "🚀 Final polish and deployment to Vercel" }
-                ],
-                explanation: `
-            The IRWSI (Indian Railway WebsiteS Information) platform was built to help departments, especially within government or large institutions like the Indian Railways, organize and share resources, websites, and documents more effectively.
-
-            While similar to Glance in functionality, IRWSI introduces a few powerful enhancements — such as admin-locked profiles, a specialized document reader, and immersive page flipping for Drive-hosted documents. This prevents accidental edits and elevates the document viewing experience for the user.
-
-            The platform is ideal for internal teams curating training material, policies, or external resources, with clean sharing and strong content control. Through admin curation, branding consistency, and modern visuals, IRWSI ensures utility and reliability while delivering an engaging UX.
-
-            Features like flip animation, zoom/search in docs, public sharing, and admin-lock protection make IRWSI not just a bookmark manager — but a presentation-ready knowledge platform.
-        `
-            }
+        techStack: {
+          frontend: 'React, Custom CSS, Bootstrap elements',
+          backend: 'Node.js, Express.js',
+          database: 'MongoDB + Mongoose',
+          auth: 'JWT Authentication',
+          deployment: {
+            frontend: 'Vercel',
+            backend: 'Vercel'
+          }
         },
-        {
-            id: 'SSS',
-            imageSrc: "https://i.ibb.co/7xm0Ls1M/Screenshot-2025-04-06-at-17-49-30.png",
-            liveUrl: 'https://sss-school-scholastic-system.vercel.app/',
-            name: 'SSS – School Scholastic System',
-            githubUrl: 'https://github.com/VinayVamshee/SSS-School-Scholastic-System.git',
-            description: (
-                "School Scholastic System (SSS)is a full-stack school management platform built using the MERN stack. It handles everything from student enrollment and fee collection to marks entry and academic configuration. The platform includes a responsive UI, theme switching, list/grid views, and admin-level control over all academic data. With real-time analytics, customizable student info, receipt downloads, and report card generation (in progress), SSS provides a modern, centralized solution for schools looking to streamline operations. Currently under active development."
-            ),
-            moreImages: [
-                "https://i.ibb.co/TBkZPkRm/Screenshot-2025-06-11-at-00-11-23.png",
-                "https://i.ibb.co/tMcRMGdW/Screenshot-2025-06-11-at-00-11-35.png",
-                "https://i.ibb.co/270QDDZM/Screenshot-2025-06-11-at-00-12-17.png",
-                "https://i.ibb.co/Z6nQfT1M/Screenshot-2025-06-11-at-00-12-39.png",
-                "https://i.ibb.co/1Y134J5H/Screenshot-2025-06-11-at-00-13-01.png"
-            ],
-            isInactive: false,
-            fullDetails: {
-                features: {
-                    userFeatures: [
-                        "👨‍🎓 Student enrollment with full details (name, Aadhar, class, guardian info, photo, etc.)",
-                        "✏️ Editable student profile after enrollment",
-                        "📥 Downloadable fee receipts",
-                        "🖥️ Clean, responsive UI with list/grid toggle",
-                        "📄 View report cards (in progress)"
-                    ],
-                    adminFeatures: [
-                        "🛠️ Full admin control over students, subjects, marks, fees, and settings",
-                        "⚙️ Master Data setup: school name, logo, contact, etc.",
-                        "📈 Manage student promotions, dropout tracking, and TC generation",
-                        "💰 Year-wise fee structure configuration",
-                        "📊 Excel/PDF exports for payment history and class data",
-                        "📚 Assign subjects to classes and exams",
-                        "📝 Enter marks per subject and generate report cards (in progress)",
-                        "🔍 Analytics for student count, fee status, and class distributions",
-                        "🪪 ID Card formatting (planned)"
-                    ]
-                },
-                requirements: {
-                    functionalRequirements: [
-                        "✅ Enroll students with all required data",
-                        "✏️ Edit student information post admission",
-                        "💵 Track fee payment and generate receipts",
-                        "📚 Configure subjects, classes, exams, and marks entry",
-                        "📊 Generate analytics for fee and student data",
-                        "🔁 Promote students between academic years",
-                        "📤 Download Excel reports for payments and marks"
-                    ],
-                    nonFunctionalRequirements: [
-                        "📱 Responsive and fast UI for both desktop and mobile",
-                        "🎨 Multiple theme support (dark/light, accent color options)",
-                        "🔐 Secure admin login with JWT",
-                        "📄 Export features using ExcelJS/PDFKit",
-                        "☁️ Hosted frontend and backend on Vercel"
-                    ]
-                },
-                techStack: {
-                    frontend: "React with Tailwind CSS + Bootstrap for components",
-                    backend: "Node.js with Express.js",
-                    database: "MongoDB",
-                    auth: "JWT (JSON Web Token)",
-                    deployment: {
-                        frontend: "Vercel",
-                        backend: "Vercel"
-                    },
-                    versionControl: "Git & GitHub"
-                },
-                timeline: [
-                    { date: "16 Feb 2025", activity: "🗓️ Initial planning and project kickoff" },
-                    { date: "17–20 Feb", activity: "📦 Database schema, basic UI, student enrollment" },
-                    { date: "21–23 Feb", activity: "🔗 Core backend APIs, frontend integration, initial deployment" },
-                    { date: "24 Feb–20 Mar", activity: "🔧 Feedback-based fixes and polish" },
-                    { date: "21–29 Mar", activity: "🎨 Major redesign with themes and UI animations" },
-                    { date: "30 Mar 2025", activity: "🚀 Visual Upgrade Deployment with improved responsiveness" },
-                    { date: "Apr–Ongoing", activity: "🧩 Feature additions: report cards, analytics, etc." }
-                ],
-                explanation: `
-        This is a feature-rich, highly customizable school management platform. It supports every phase of the academic process, from admission to promotion. The design includes theme switching, grid/list view toggles, and animations for a modern user experience. Admins can configure everything from master data (school name/logo) to academic settings like subjects, exams, fee structures, and payment tracking. Excel and PDF tools allow for downloadable receipts, reports, and history. The backend supports advanced academic logic like setting multiple exams per class, associating subjects with those exams, and managing year-end promotions. Dropout students are tracked, and TCs are auto-generated. With its clean UI and robust backend, SSS is ideal for modernizing school operations with full administrative control.
-    `
-            }
+        timeline: [
+          { date: '09 Nov 2025', activity: 'Kickoff: dynamic entities, schema architectures, and payments modules' },
+          { date: '16 Nov 2025', activity: 'Completed first usable Inventory UI and file uploads' },
+          { date: '30 Nov 2025', activity: 'Implemented selling flows, profit margins, and payment logs' },
+          { date: '21 Dec 2025', activity: 'Integrated filters, columns selection, and theme configurations' }
+        ],
+        requirements: {
+          functionalRequirements: [
+            '✅ Generic CRUD schema handling metadata',
+            '✅ Dual-theme silver/gold layouts'
+          ],
+          nonFunctionalRequirements: [
+            '⚡ Indian currency lakh grouping formatting support'
+          ]
         },
-        {
-            id: 'Helmet',
-            imageSrc: Helmet,
-            liveUrl: '#', // Add your deployed URL here
-            name: 'Helmet Detection System',
-            githubUrl: '#', // Add your GitHub URL here
-            description: (
-                <>
-                    This project detects bike riders, helmets, and number plates using a YOLOv8 model integrated into a Streamlit web app. It identifies whether a rider is wearing a helmet or not and performs OCR on detected number plates. Ideal for traffic monitoring and safety enforcement systems.
-                    <p style={{ fontWeight: 'bold' }}>Built using YOLOv8, Streamlit, and EasyOCR.</p>
-                </>
-            ),
-            isInactive: true // Example of how to handle disabled links
-        }
-    ]);
+        explanation: `ABC demonstrates a configurable business engine where forms, layouts, validations, and columns are derived entirely from backend database rules.`
+      }
+    },
+    {
+      id: 'CCC-SECR-BSP',
+      imageSrc: CCC,
+      liveUrl: 'https://ccc-secr-bsp.vercel.app/',
+      name: 'CCC Crew Operations Hub',
+      githubUrl: 'https://github.com/VinayVamshee/Project-CCC-SECR-BSP.git',
+      description: 'An internal operations platform for crew communications, digitizing manuals, event noticing, contact search, and safety knowledge quiz tests.',
+      tag: 'Enterprise Operations Platform',
+      colorGlow: 'rgba(161, 0, 255, 0.08)',
+      moreImages: [
+        'https://i.ibb.co/1JjKDpxh/Screenshot-2025-06-11-at-00-08-46.png',
+        'https://i.ibb.co/Wv66xR4N/Screenshot-2025-06-11-at-00-08-35.png',
+        'https://i.ibb.co/CpZ3WvNC/Screenshot-2025-06-11-at-00-08-59.png'
+      ],
+      fullDetails: {
+        intro: `CCC (Crew Communication & Content Center) is an internal communications hub built to manage resource access, safety guides, and real-time team logs.`,
+        description: `This platform digitizes operations, replacing paper notices and WhatsApp directories with a secure, responsive portal accessible on any mobile device.`,
+        features: {
+          userFeatures: [
+            '📚 Downloadable library manuals and documents',
+            '🎥 Safety video streams and category filters',
+            '📝 Timed technical quizzes with auto-scoring and shuffled inputs'
+          ],
+          adminFeatures: [
+            '🔐 Secure admin authentication session control',
+            '📤 Full content CMS for adding books, contacts, and quiz questions',
+            '🔔 Push-style alert broadcasts with unseen badge counters'
+          ]
+        },
+        techStack: {
+          frontend: 'React, CSS3 (with animations), ES6',
+          backend: 'Node.js, Express.js',
+          database: 'MongoDB Atlas',
+          auth: 'JWT Auth',
+          deployment: {
+            frontend: 'Vercel',
+            backend: 'Render'
+          }
+        },
+        timeline: [
+          { date: 'Jan 2024', activity: 'Initial conceptualization and deployment' },
+          { date: 'Feb 2025', activity: 'Added broadcasting notices and alert modules' },
+          { date: 'Jun 2025', activity: 'Integrated interactive timed quiz tests' }
+        ],
+        requirements: {
+          functionalRequirements: [
+            '✅ Document flip viewer integration',
+            '✅ Quiz scoreboards tracking'
+          ],
+          nonFunctionalRequirements: [
+            '📱 Low latency directory filtering'
+          ]
+        },
+        explanation: `CCC streamlines field communication, improving training engagement through timed MCQs and safe document repositories.`
+      }
+    },
+    {
+      id: 'GLANCE',
+      imageSrc: IRWSI,
+      liveUrl: 'https://vigilance-secr.vercel.app/',
+      name: 'Glance – Personalized Web Launcher',
+      githubUrl: 'https://github.com/VinayVamshee/IRWSI-Indian-Railway-WebsiteS-Information.git',
+      description: 'A multi-user bookmark catalog and knowledge dashboard featuring 3D page-flipping previewers, customizable background skins, and admin locking rules.',
+      tag: 'Personalized Web Launcher',
+      colorGlow: 'rgba(0, 242, 254, 0.08)',
+      moreImages: [],
+      fullDetails: {
+        intro: `Glance is a multi-user, full-stack bookmark launcher offering visual categories, customized themes, and 3D document flip-books.`,
+        description: `It solves scattered links by organizing study, development, and team resources into neat panels with background wallpapers and an inline search console.`,
+        features: {
+          userFeatures: [
+            '🗂️ Categorized boards for rapid access (Work, Dev, Study)',
+            '🌌 Custom user-defined backgrounds (Images / Videos / Colors)',
+            '📚 Word-document-style viewer with 3D flip animations and zoom'
+          ],
+          adminFeatures: [
+            '🛑 Admin lock preventing accidental edits to curated department-wide bookmark sets',
+            '🔗 Public links sharing with embedder frames'
+          ]
+        },
+        techStack: {
+          frontend: 'React, CSS3, html-flippage engine',
+          backend: 'Node.js, Express.js',
+          database: 'MongoDB Atlas',
+          auth: 'JWT Auth',
+          deployment: {
+            frontend: 'Vercel',
+            backend: 'Render'
+          }
+        },
+        timeline: [
+          { date: 'Mar 2024', activity: 'Developed flip-book layout engine' },
+          { date: 'Apr 2024', activity: 'Completed JWT login, admin permissions lock, and final hosting' }
+        ],
+        requirements: {
+          functionalRequirements: [
+            '✅ Fast real-time bookmark indexing',
+            '✅ Interactive 3D flip previewer'
+          ],
+          nonFunctionalRequirements: [
+            '🌓 Device scale responsive grids'
+          ]
+        },
+        explanation: `Glance acts as a unified portal, eliminating fragmented links and improving resource sharing within organizational nodes.`
+      }
+    },
+    {
+      id: 'MAGUVAS-COLLECTION',
+      imageSrc: MaguvasCover,
+      liveUrl: 'https://mallikas-store.vercel.app/',
+      name: 'Maguva’s Collection',
+      githubUrl: 'https://github.com/VinayVamshee/Mallikas-Store.git',
+      description: 'A premium boutique-style e-commerce platform featuring multi-attribute product filters, secure user profiles, order tracking, and QR payments.',
+      tag: 'E-Commerce SaaS',
+      colorGlow: 'rgba(0, 242, 254, 0.08)',
+      moreImages: [
+        'https://i.ibb.co/MkVJVTrb/Screenshot-2025-06-09-at-22-37-21.png',
+        'https://i.ibb.co/0RRTHvdD/Screenshot-2025-06-11-at-12-02-56.png'
+      ],
+      fullDetails: {
+        intro: `Maguva's Collection is a boutique women's fashion store frontend and backend built with advanced categories filtering and manual QR checkout mechanisms.`,
+        description: `Designed to handle boutique inventory, users can filter by size, colors, categories and view alternate previews on hover.`,
+        features: {
+          userFeatures: [
+            '👗 Multi-category filters (sizes, apparel, pricing)',
+            '🛒 Cart state with dynamic quantity limits',
+            '📦 Live orders tracking and timeline'
+          ],
+          adminFeatures: [
+            '🛠️ Admin stock management panel',
+            '📉 Toggle out-of-stock items and flag variants'
+          ]
+        },
+        techStack: {
+          frontend: 'React, CSS (Bootstrap-powered custom elements)',
+          backend: 'Node.js, Express.js',
+          database: 'MongoDB',
+          auth: 'JWT (Token)',
+          deployment: {
+            frontend: 'Vercel',
+            backend: 'Vercel'
+          }
+        },
+        timeline: [
+          { date: 'Jun 2025', activity: 'Engineered backend order queues and integrated responsive grids' }
+        ],
+        requirements: {
+          functionalRequirements: [
+            '✅ User checkouts and payment QR code layouts',
+            '✅ Stock controls'
+          ],
+          nonFunctionalRequirements: [
+            '📱 Optimized images for mobile shopping web'
+          ]
+        },
+        explanation: `Maguva's Collection simplifies inventory administration while presenting a clean interface for mobile shoppers.`
+      }
+    },
+    {
+      id: 'RRR-SECR',
+      imageSrc: RRR,
+      liveUrl: 'https://rrr-secr.vercel.app/',
+      name: 'RRR - Lodging & Accommodation Console',
+      githubUrl: 'https://github.com/VinayVamshee/Railway_Running_Rooms.git',
+      description: 'A resource allocation engine that automates space logs, check-ins, capacity utilization indexes, and analytical exports for large operations hubs.',
+      tag: 'Internal Resource Allocation Platform',
+      colorGlow: 'rgba(161, 0, 255, 0.08)',
+      moreImages: [
+        'https://i.ibb.co/58jbrDV/Screenshot-2024-12-12-at-12-57-48-PM.png',
+        'https://i.ibb.co/PjGRJR7/Screenshot-2024-12-12-at-12-58-20-PM.png'
+      ],
+      fullDetails: {
+        intro: `The Lodging and Accommodation platform digitizes check-ins and room utilization tracking for large team operations.`,
+        description: `Replacing traditional logs, it offers color-coded visual maps of rooms, bed availability, and real-time operational status.`,
+        features: {
+          userFeatures: [
+            '📋 Real-time room booking statuses',
+            '📅 History logs for stays and checkouts'
+          ],
+          adminFeatures: [
+            '🛏️ Color-coded room occupancy grid (Red/Green)',
+            '📈 Peak hour occupancy reports and analytics',
+            '📤 Excel reports downloadable via ExcelJS'
+          ]
+        },
+        techStack: {
+          frontend: 'React with CSS',
+          backend: 'Node.js, Express.js',
+          database: 'MongoDB Atlas',
+          auth: 'JWT Session authentication',
+          deployment: {
+            frontend: 'Vercel',
+            backend: 'Vercel'
+          }
+        },
+        timeline: [
+          { date: 'May 2024', activity: 'Setup, designed interactive grid occupancy visual boards, and integrated ExcelJS' }
+        ],
+        requirements: {
+          functionalRequirements: [
+            '✅ Interactive room maps',
+            '✅ Peak hours arrival telemetry'
+          ],
+          nonFunctionalRequirements: [
+            '🌓 Stable state updates during concurrent admin logins'
+          ]
+        },
+        explanation: `RRR minimizes errors, limits double-bookings, and delivers operational statistics to divisional managers.`
+      }
+    },
+    {
+      id: 'Helmet',
+      imageSrc: Helmet,
+      liveUrl: '#',
+      name: 'AI Object & Asset Detection',
+      githubUrl: '#',
+      description: 'A deep learning computer vision application using YOLOv8, Streamlit, and OCR to identify security compliance objects and perform automatic cataloging.',
+      tag: 'AI / Computer Vision',
+      colorGlow: 'rgba(161, 0, 255, 0.08)',
+      moreImages: [],
+      isInactive: true,
+      fullDetails: {
+        intro: `AI Object Detection uses YOLOv8 weights to analyze video files and streams, identifying violations in real-time.`,
+        description: `It flags missing assets, zooms in on details, and uses OCR (EasyOCR) to read alphanumeric serial codes.`,
+        features: {
+          userFeatures: [
+            '📹 Upload video files to identify compliance states',
+            '🔍 View OCR bounding boxes on extracted serial plates'
+          ],
+          adminFeatures: [
+            '📊 Violations counter dashboard'
+          ]
+        },
+        techStack: {
+          frontend: 'Streamlit',
+          backend: 'Python',
+          database: 'None (Local Cache)',
+          auth: 'None',
+          deployment: {
+            frontend: 'Local Server / Streamlit Cloud',
+            backend: 'Local Server'
+          }
+        },
+        timeline: [
+          { date: 'Oct 2024', activity: 'Model training using custom datasets, integrated OCR engine, and built frontend' }
+        ],
+        requirements: {
+          functionalRequirements: [
+            '✅ YOLOv8 object detections',
+            '✅ Plate OCR extraction'
+          ],
+          nonFunctionalRequirements: [
+            '⚡ Sub-second response frames'
+          ]
+        },
+        explanation: `This project is designed as an automated safety compliance solution, reducing manual inspection labor.`
+      }
+    }
+  ]);
 
-    const navigate = useNavigate();
+  const handleNavigate = (projectData) => {
+    navigate(`/project/${projectData.id}`, { state: { project: projectData } });
+  };
 
-    const handleNavigate = (websiteData) => {
-        // Navigate to the dynamic route and pass the entire object as state
-        navigate(`/project/${websiteData.id}`, { state: { project: websiteData } });
-    };
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2, delayChildren: 0.1 }
+    }
+  };
 
-    return (
-        <div id='project' className='projects'>
-            <div className='websites'>
-                {websites.map(website => (
-                    <div
-                        className='website'
-                        key={website.id}
-                        onClick={(e) => {
-                            // This check prevents navigation when clicking on links or buttons inside the card
-                            if (e.target.tagName !== 'A' && e.target.tagName !== 'BUTTON' && e.target.parentElement.tagName !== 'A') {
-                                handleNavigate(website);
-                            }
-                        }}>
-                        <div className='image'>
-                            <img src={website.imageSrc} alt={website.name} />
-                            <a href={website.liveUrl} target='_blank' rel="noreferrer" className={`btn ${website.isInactive ? 'disabled' : ''}`}>
-                                <img src='https://cdn-icons-png.flaticon.com/512/13437/13437567.png' alt='Live Preview' />
-                            </a>
-                        </div>
-                        <name>{website.name}</name>
-                        <div className='links'>
-                            <div className='link'>
-                                <a href={website.githubUrl} target='_blank' rel="noreferrer" className={website.isInactive ? 'disabled' : ''}>Github Repository</a>
-                            </div>
-                            <p className="d-inline-flex gap-1">
-                                <button className="btn dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target={`#Collapse${website.id}`} aria-expanded="false" aria-controls={`Collapse${website.id}`}>
-                                </button>
-                            </p>
-                        </div>
-                        <div className="collapse" id={`Collapse${website.id}`}>
-                            {website.description}
-                        </div>
-                    </div>
-                ))}
-            </div>
+  const cardVariants = {
+    hidden: { y: 40, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
 
-            {/* <Footer /> */}
+  return (
+    <div className="page-section">
+      <div className="noise-overlay" />
+      <motion.div 
+        variants={containerVariants} 
+        initial="hidden" 
+        animate="visible"
+      >
+        <motion.h2 className="section-title" variants={cardVariants}>
+          Selected Case Studies
+        </motion.h2>
+        <motion.p className="section-subtitle" variants={cardVariants}>
+          Explore the architecture, technical challenges, and product impacts of platforms engineered for school ERPs, enterprise operations, and business operating consoles.
+        </motion.p>
+
+        <div className="projects-container">
+          {websites.map((project) => (
+            <motion.div 
+              className="project-section-card" 
+              key={project.id}
+              variants={cardVariants}
+              onClick={() => handleNavigate(project)}
+              style={{ cursor: 'pointer' }}
+            >
+              <div className="project-glow" style={{ background: `radial-gradient(circle, ${project.colorGlow} 0%, transparent 60%)` }} />
+              
+              <div className="project-details-left">
+                <span className="project-label">{project.tag}</span>
+                <h3 className="project-name">{project.name}</h3>
+                <p className="project-desc-short">{project.description}</p>
+                
+                <div className="project-features-list">
+                  <div className="project-feat">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11.4669 3.72684C11.7175 3.91484 11.7686 4.27197 11.5806 4.52258L6.83059 10.8559C6.73778 10.9797 6.59628 11.0565 6.44211 11.0664C6.28794 11.0763 6.13651 11.0182 6.02647 10.9082L3.52647 8.40816C3.33121 8.2129 3.33121 7.89632 3.52647 7.70106C3.72173 7.50579 4.03831 7.50579 4.23358 7.70106L6.29903 9.76651L10.6712 3.93708C10.8592 3.68647 11.2163 3.63536 11.4669 3.72684Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
+                    </svg>
+                    <span>Full Production-Grade Product Architecture</span>
+                  </div>
+                  <div className="project-feat">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11.4669 3.72684C11.7175 3.91484 11.7686 4.27197 11.5806 4.52258L6.83059 10.8559C6.73778 10.9797 6.59628 11.0565 6.44211 11.0664C6.28794 11.0763 6.13651 11.0182 6.02647 10.9082L3.52647 8.40816C3.33121 8.2129 3.33121 7.89632 3.52647 7.70106C3.72173 7.50579 4.03831 7.50579 4.23358 7.70106L6.29903 9.76651L10.6712 3.93708C10.8592 3.68647 11.2163 3.63536 11.4669 3.72684Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
+                    </svg>
+                    <span>Integrated CRUD Databases & Auth Schemas</span>
+                  </div>
+                </div>
+
+                <div className="project-cta-row">
+                  <button className="btn-secondary" style={{ border: 'none', background: 'transparent', padding: '0', textDecoration: 'underline' }}>
+                    View Technical Case Study →
+                  </button>
+                </div>
+              </div>
+
+              <div className="project-mockup-right">
+                <div className="browser-frame">
+                  <div className="browser-header">
+                    <div className="browser-dot red" />
+                    <div className="browser-dot yellow" />
+                    <div className="browser-dot green" />
+                    <div className="browser-address">localhost:3000/app/{project.id.toLowerCase()}</div>
+                  </div>
+                  <div className="browser-content">
+                    <img src={project.imageSrc} alt={project.name} className="browser-img" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
-    )
+      </motion.div>
+    </div>
+  );
 }

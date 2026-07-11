@@ -1,24 +1,65 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaHome, FaUserAlt, FaCode } from 'react-icons/fa';
-import vinayvamshee from './Screenshot 2024-12-15 at 9.28.44 PM.png';
+import { motion } from 'framer-motion';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 export default function Menu() {
+  const [theme, setTheme] = useState(localStorage.getItem('portfolio-theme') || 'dark');
+
+  useEffect(() => {
+    if (theme === 'light') {
+      document.body.classList.add('light-theme');
+    } else {
+      document.body.classList.remove('light-theme');
+    }
+    localStorage.setItem('portfolio-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
+
   return (
-    <div className="menu">
-      <img src={vinayvamshee} alt="..." />
-      <name>Pechetti Vinay Vamshee</name>
-      <div className="navigation">
-        <NavLink to="/" className={({ isActive }) => isActive ? 'btn active' : 'btn'}>
-          <FaHome className="icon" /> Home
+    <motion.div 
+      className="nav-container"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <nav className="nav-bar">
+        <NavLink to="/" className="nav-brand">
+          Vinay Vamshee
         </NavLink>
-        <NavLink to="/About" className={({ isActive }) => isActive ? 'btn active' : 'btn'}>
-          <FaUserAlt className="icon" /> About
-        </NavLink>
-        <NavLink to="/Projects" className={({ isActive }) => isActive ? 'btn active' : 'btn'}>
-          <FaCode className="icon" /> Projects
-        </NavLink>
-      </div>
-    </div>
+        
+        <div className="nav-links">
+          <NavLink 
+            to="/" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            Home
+          </NavLink>
+          <NavLink 
+            to="/About" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            About
+          </NavLink>
+          <NavLink 
+            to="/Projects" 
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            Projects
+          </NavLink>
+
+          <button 
+            onClick={toggleTheme} 
+            className="theme-toggle-btn" 
+            aria-label="Toggle Theme"
+          >
+            {theme === 'dark' ? <FaSun size={14} /> : <FaMoon size={14} />}
+          </button>
+        </div>
+      </nav>
+    </motion.div>
   );
 }
