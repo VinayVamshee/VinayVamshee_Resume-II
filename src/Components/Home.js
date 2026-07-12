@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import vinayvamsheeResume from './Vinay Vamshee Resume.pdf';
-import vinayvamshee from './Screenshot 2024-12-15 at 9.28.44 PM.png';
+import vinayvamshee from './Images/VinayVamshee.png';
 
 export default function Home() {
   const containerVariants = {
