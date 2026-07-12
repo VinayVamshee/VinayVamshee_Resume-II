@@ -51,7 +51,7 @@ export default function About() {
   return (
     <div className="page-section">
       <div className="noise-overlay" />
-      <motion.div 
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -81,7 +81,7 @@ export default function About() {
           <motion.div className="about-timeline" variants={itemVariants}>
             <h3 className="timeline-title">Academic & Progression</h3>
             <div className="timeline-wrapper">
-              
+
               <div className="timeline-item">
                 <div className="timeline-dot" />
                 <div className="timeline-date">2025 - Present</div>

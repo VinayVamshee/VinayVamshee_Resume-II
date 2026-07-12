@@ -41,7 +41,7 @@ export default function Home() {
       >
         <div className="hero-left">
           <motion.div className="hero-tag" variants={itemVariants}>
-            Salesforce Developer & Full Stack Architect
+            Full-Stack Product Engineer • Solutions Architect • MERN Developer
           </motion.div>
           
           <motion.h1 className="hero-title" variants={itemVariants}>
@@ -50,7 +50,7 @@ export default function Home() {
           </motion.h1>
           
           <motion.p className="hero-desc" variants={itemVariants}>
-            Hi, I'm <strong>Vinay Vamshee</strong>. I am a Salesforce Developer and Full Stack Engineer. I build scalable software platforms, enterprise school ERPs, metadata-driven business operating systems, and dynamic SaaS architectures.
+            Hi, I'm <strong>Vinay Vamshee</strong>. I build products around business workflows, configurable architectures, metadata-driven systems, and scalable enterprise platforms instead of simple CRUD applications.
           </motion.p>
           
           <motion.div className="hero-buttons" variants={itemVariants}>

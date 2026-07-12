@@ -3,11 +3,36 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 // Import images
-import CCC from './Images/CCC-Page.png';
-import IRWSI from './Images/IRWSI-Page.png';
-import RRR from './Images/RRR-Page.png';
-import ABC from './Images/Screenshot 2025-12-21 at 17.31.04.png';
-import Helmet from './Images/Helmet.png';
+import SSSMain from './Images/SSS.png';
+import SSSClasses from './Images/SSS-Classes.png';
+import SSSDev from './Images/SSS-Dev.png';
+import SSSLogin from './Images/SSS-Login.png';
+import SSSQP from './Images/SSS-QP.png';
+import SSSQPPPreview from './Images/SSS-QPPPreview.png';
+import SSSSettings from './Images/SSS-Settings.png';
+import SSSStudent from './Images/SSS-Student.png';
+import SSSStudentInformation from './Images/SSS-StudentInformation.png';
+
+import ABCMain from './Images/ABC.png';
+import ABCHome from './Images/ABC-Home.png';
+import ABCInventory from './Images/ABC-Inventory.png';
+import ABCSettings from './Images/ABC-Settings.png';
+import ABCSold from './Images/ABC-Sold.png';
+
+import CCCMain from './Images/CCC.png';
+import CCCAdmin from './Images/CCC-Admin.png';
+import CCCAlbum from './Images/CCC-Album.png';
+import CCCBooks from './Images/CCC-Books.png';
+import CCCQuiz from './Images/CCC-Quiz.png';
+import CCCStaff from './Images/CCC-Staff.png';
+import CCCVideos from './Images/CCC-Videos.png';
+
+import GlanceMain from './Images/Glance.png';
+import GlanceSettings from './Images/Glance-Settings.png';
+import GlanceSettingsII from './Images/Glance-SettingsII.png';
+
+import RRRMain from './Images/RRR-Page.png';
+import HelmetMain from './Images/Helmet.png';
 import MaguvasCover from './Images/Screenshot 2025-06-11 at 11.59.16.png';
 
 export default function Projects() {
@@ -16,21 +41,30 @@ export default function Projects() {
   const [websites] = useState([
     {
       id: 'SSS',
-      imageSrc: "https://i.ibb.co/7xm0Ls1M/Screenshot-2025-04-06-at-17-49-30.png",
+      imageSrc: SSSMain,
       liveUrl: 'https://sss-school-scholastic-system.vercel.app/',
       name: 'School Scholastic System (SSS)',
       githubUrl: 'https://github.com/VinayVamshee/SSS-School-Scholastic-System.git',
-      description: 'An enterprise-grade School ERP platform designed to digitize and streamline every aspect of academic and administrative operations using a metadata-driven architecture.',
-      tag: 'Enterprise School Management Platform',
+      description: 'A configurable, metadata-driven School ERP and Business Operating Platform that digitizes the complete academic lifecycle from admissions and student records to examinations, fee management, report cards, and institutional administration without relying on hardcoded workflows.',
+      tag: 'Metadata-Driven Multi-Tenant School ERP',
       colorGlow: 'rgba(161, 0, 255, 0.08)',
+      highlights: [
+        'Metadata Driven Architecture',
+        'Multi-Tenant SaaS',
+        'Dynamic Forms Engine'
+      ],
       moreImages: [
-        "https://i.ibb.co/TBkZPkRm/Screenshot-2025-06-11-at-00-11-23.png",
-        "https://i.ibb.co/tMcRMGdW/Screenshot-2025-06-11-at-00-11-35.png",
-        "https://i.ibb.co/270QDDZM/Screenshot-2025-06-11-at-00-12-17.png",
-        "https://i.ibb.co/Z6nQfT1M/Screenshot-2025-06-11-at-00-12-39.png"
+        SSSLogin,
+        SSSStudent,
+        SSSStudentInformation,
+        SSSClasses,
+        SSSQP,
+        SSSQPPPreview,
+        SSSSettings,
+        SSSDev,
       ],
       fullDetails: {
-        intro: `School Scholastic System (SSS) is an enterprise-grade School ERP platform designed to digitize and streamline every aspect of academic and administrative operations. Built using the MERN stack, the platform follows a scalable, metadata-driven architecture that allows schools to configure forms, workflows, and academic structures dynamically without requiring code changes.`,
+        intro: `School Scholastic System (SSS) is a modern enterprise-grade SaaS platform built using a metadata-driven architecture. Instead of developing rigid modules for every requirement, the platform allows schools to configure entities, academic structures, forms, workflows, validations, and business rules dynamically from the backend, enabling multiple institutions to operate on the same scalable platform.`,
         description: `Unlike traditional school management systems that rely on hardcoded modules, SSS provides a highly configurable platform where administrators can manage students, classes, academic years, examinations, fees, admissions, promotions, attendance, report cards, and organizational settings from a centralized dashboard.`,
         features: {
           userFeatures: [
@@ -57,11 +91,42 @@ export default function Projects() {
           }
         },
         timeline: [
-          { date: '16 Feb 2025', activity: 'Initial planning, database schema design, and kickoff' },
-          { date: '17-20 Feb 2025', activity: 'Developed database schema, base layout UI, and student forms' },
-          { date: '21-23 Feb 2025', activity: 'Core backend APIs, first frontend integration, and Initial Deployment' },
-          { date: '21-29 Mar 2025', activity: 'Major visual redesign, multiple themes, and animations' },
-          { date: '30 Mar 2025', activity: 'Visual Upgrade Deployment with full mobile responsiveness' }
+          {
+            date: '16 Feb 2025',
+            activity: 'Project inception with core School Information System (SIS), authentication, and foundational database architecture'
+          },
+          {
+            date: 'Mar 2025',
+            activity: 'Completed Student Management, Admissions, Academic Sessions, Fee Management, Payments, and Reporting modules'
+          },
+          {
+            date: 'May 2025',
+            activity: 'Major UI/UX redesign with responsive layouts, dashboards, analytics, themes, animations, and reusable component architecture'
+          },
+          {
+            date: 'Jul 2025',
+            activity: 'Introduced metadata-driven architecture with dynamic entities, configurable schemas, and centralized master data management'
+          },
+          {
+            date: 'Sep 2025',
+            activity: 'Implemented EAV (Entity-Attribute-Value) engine enabling dynamic forms, configurable fields, validation rules, and schema-driven CRUD operations'
+          },
+          {
+            date: 'Nov 2025',
+            activity: 'Built Question Bank, Random Question Generator, Question Paper Builder, Template Management, PDF generation, and printing workflows'
+          },
+          {
+            date: 'Jan 2026',
+            activity: 'Added Developer Platform including schema designer, metadata registry, entity mapping, API dispatch pipeline, storage mapper, and workflow engine'
+          },
+          {
+            date: 'Mar 2026',
+            activity: 'Expanded into a configurable multi-tenant SaaS platform with role-based permissions, dynamic modules, audit logs, and organization-level customization'
+          },
+          {
+            date: 'Present',
+            activity: 'Continuous development focusing on enterprise architecture, module configurability, performance optimization, developer tooling, and extensible platform capabilities'
+          }
         ],
         requirements: {
           functionalRequirements: [
@@ -79,16 +144,26 @@ export default function Projects() {
     },
     {
       id: 'ABC',
-      imageSrc: ABC,
+      imageSrc: ABCMain,
       liveUrl: '',
       name: 'ABC – Advanced Business Console',
       githubUrl: 'https://github.com/VinayVamshee/Project-ABC.git',
-      description: 'A centralized business operating platform designed to manage operational records, transactions, inventory, and dynamic schemas without database rebuilds.',
-      tag: 'Enterprise Business Operating Platform',
+      description: 'ABC (Advanced Business Console) is a configurable Business Operating Platform (BOP) that enables organizations to build custom business workflows, entities, inventory systems, transaction engines, ledgers, billing processes, and operational modules without redesigning the database or backend architecture.',
+      tag: 'Metadata-Driven Business Operating Platform',
       colorGlow: 'rgba(0, 242, 254, 0.08)',
-      moreImages: [],
+      highlights: [
+        'Business Operating Platform',
+        'Dynamic Entity Engine',
+        'Configurable Transactions'
+      ],
+      moreImages: [
+        ABCHome,
+        ABCInventory,
+        ABCSold,
+        ABCSettings,
+      ],
       fullDetails: {
-        intro: `ABC (Advanced Business Console) is a MERN-stack administrative console designed to manage operational records, inventory, and custom billing workflows through a dynamic field-driven architecture.`,
+        intro: `ABC (Advanced Business Console) is a configurable Business Operating Platform (BOP) that enables organizations to build custom business workflows, entities, inventory systems, transaction engines, ledgers, billing processes, and operational modules without redesigning the database or backend architecture.`,
         description: `By eliminating hardcoded modules, ABC acts as a digital operating system for small-to-medium retail and service businesses. It provides complete control over purchasing, sales, payments, customer registers, and ledger tracking.`,
         features: {
           userFeatures: [
@@ -113,10 +188,38 @@ export default function Projects() {
           }
         },
         timeline: [
-          { date: '09 Nov 2025', activity: 'Kickoff: dynamic entities, schema architectures, and payments modules' },
-          { date: '16 Nov 2025', activity: 'Completed first usable Inventory UI and file uploads' },
-          { date: '30 Nov 2025', activity: 'Implemented selling flows, profit margins, and payment logs' },
-          { date: '21 Dec 2025', activity: 'Integrated filters, columns selection, and theme configurations' }
+          {
+            date: '09 Nov 2025',
+            activity: 'Project kickoff with modular architecture, authentication, inventory foundation, and configurable business entities'
+          },
+          {
+            date: '22 Nov 2025',
+            activity: 'Completed Inventory Management including products, categories, stock tracking, file uploads, and supplier management'
+          },
+          {
+            date: '14 Dec 2025',
+            activity: 'Implemented Purchase & Sales workflows, invoice generation, payment tracking, profit calculations, and customer management'
+          },
+          {
+            date: '11 Jan 2026',
+            activity: 'Introduced dynamic schema engine, metadata-driven entities, customizable forms, validation rules, and business configuration modules'
+          },
+          {
+            date: '08 Feb 2026',
+            activity: 'Developed advanced reporting, dashboards, analytics, search, filters, column personalization, and export utilities'
+          },
+          {
+            date: '18 Mar 2026',
+            activity: 'Built enterprise architecture with Storage Mapper, Dispatch Services, Repository layer, reusable business handlers, and centralized API pipeline'
+          },
+          {
+            date: '27 Apr 2026',
+            activity: 'Integrated role-based permissions, audit logging, theme engine, notifications, document generation, and workflow automation'
+          },
+          {
+            date: 'Present',
+            activity: 'Continuous expansion into a configurable Business Operating Platform with scalable modules, metadata-driven development, and enterprise-grade architecture'
+          }
         ],
         requirements: {
           functionalRequirements: [
@@ -132,20 +235,28 @@ export default function Projects() {
     },
     {
       id: 'CCC-SECR-BSP',
-      imageSrc: CCC,
+      imageSrc: CCCMain,
       liveUrl: 'https://ccc-secr-bsp.vercel.app/',
-      name: 'CCC Crew Operations Hub',
+      name: 'CCC – Crew Communication Center',
       githubUrl: 'https://github.com/VinayVamshee/Project-CCC-SECR-BSP.git',
-      description: 'An internal operations platform for crew communications, digitizing manuals, event noticing, contact search, and safety knowledge quiz tests.',
-      tag: 'Enterprise Operations Platform',
+      description: 'CCC (Crew Communication & Content Center) is a digital operations portal developed for South East Central Railway to centralize crew communications, technical resources, departmental announcements, learning material, knowledge assessments, and staff information into a single platform used by railway employees.',
+      tag: 'Railway Operations & Knowledge Portal',
       colorGlow: 'rgba(161, 0, 255, 0.08)',
+      highlights: [
+        'Railway Staff Portal',
+        'Learning Management',
+        'Quiz & Analytics'
+      ],
       moreImages: [
-        'https://i.ibb.co/1JjKDpxh/Screenshot-2025-06-11-at-00-08-46.png',
-        'https://i.ibb.co/Wv66xR4N/Screenshot-2025-06-11-at-00-08-35.png',
-        'https://i.ibb.co/CpZ3WvNC/Screenshot-2025-06-11-at-00-08-59.png'
+        CCCStaff,
+        CCCBooks,
+        CCCVideos,
+        CCCAlbum,
+        CCCQuiz,
+        CCCAdmin,
       ],
       fullDetails: {
-        intro: `CCC (Crew Communication & Content Center) is an internal communications hub built to manage resource access, safety guides, and real-time team logs.`,
+        intro: `CCC (Crew Communication & Content Center) is a digital operations portal developed for South East Central Railway to centralize crew communications, technical resources, departmental announcements, learning material, knowledge assessments, and staff information into a single platform used by railway employees.`,
         description: `This platform digitizes operations, replacing paper notices and WhatsApp directories with a secure, responsive portal accessible on any mobile device.`,
         features: {
           userFeatures: [
@@ -188,16 +299,24 @@ export default function Projects() {
     },
     {
       id: 'GLANCE',
-      imageSrc: IRWSI,
+      imageSrc: GlanceMain,
       liveUrl: 'https://vigilance-secr.vercel.app/',
-      name: 'Glance – Personalized Web Launcher',
+      name: 'Glance',
       githubUrl: 'https://github.com/VinayVamshee/IRWSI-Indian-Railway-WebsiteS-Information.git',
-      description: 'A multi-user bookmark catalog and knowledge dashboard featuring 3D page-flipping previewers, customizable background skins, and admin locking rules.',
-      tag: 'Personalized Web Launcher',
+      description: 'Glance is a personalized digital workspace that centralizes frequently used websites, documents, PDFs, productivity tools, notes, and organizational resources into a customizable dashboard featuring rich previews, flipbook readers, personalized themes, and secure multi-user management.',
+      tag: 'Personal Productivity Workspace',
       colorGlow: 'rgba(0, 242, 254, 0.08)',
-      moreImages: [],
+      highlights: [
+        'Personalized Workspace',
+        'Smart Resource Library',
+        'Custom Dashboards'
+      ],
+      moreImages: [
+        GlanceSettings,
+        GlanceSettingsII
+      ],
       fullDetails: {
-        intro: `Glance is a multi-user, full-stack bookmark launcher offering visual categories, customized themes, and 3D document flip-books.`,
+        intro: `Glance is a personalized digital workspace that centralizes frequently used websites, documents, PDFs, productivity tools, notes, and organizational resources into a customizable dashboard featuring rich previews, flipbook readers, personalized themes, and secure multi-user management.`,
         description: `It solves scattered links by organizing study, development, and team resources into neat panels with background wallpapers and an inline search console.`,
         features: {
           userFeatures: [
@@ -242,15 +361,17 @@ export default function Projects() {
       liveUrl: 'https://mallikas-store.vercel.app/',
       name: 'Maguva’s Collection',
       githubUrl: 'https://github.com/VinayVamshee/Mallikas-Store.git',
-      description: 'A premium boutique-style e-commerce platform featuring multi-attribute product filters, secure user profiles, order tracking, and QR payments.',
-      tag: 'E-Commerce SaaS',
+      description: 'A boutique-focused digital commerce platform designed for fashion retailers, offering catalog management, product variants, customer accounts, QR-based ordering, inventory management, and responsive shopping experiences optimized for mobile users.',
+      tag: 'Boutique Commerce Platform',
       colorGlow: 'rgba(0, 242, 254, 0.08)',
-      moreImages: [
-        'https://i.ibb.co/MkVJVTrb/Screenshot-2025-06-09-at-22-37-21.png',
-        'https://i.ibb.co/0RRTHvdD/Screenshot-2025-06-11-at-12-02-56.png'
+      highlights: [
+        'Boutique Commerce',
+        'Inventory Management',
+        'Mobile Shopping'
       ],
+      moreImages: [],
       fullDetails: {
-        intro: `Maguva's Collection is a boutique women's fashion store frontend and backend built with advanced categories filtering and manual QR checkout mechanisms.`,
+        intro: `Maguva's Collection is a boutique-focused digital commerce platform designed for fashion retailers, offering catalog management, product variants, customer accounts, QR-based ordering, inventory management, and responsive shopping experiences optimized for mobile users.`,
         description: `Designed to handle boutique inventory, users can filter by size, colors, categories and view alternate previews on hover.`,
         features: {
           userFeatures: [
@@ -290,19 +411,21 @@ export default function Projects() {
     },
     {
       id: 'RRR-SECR',
-      imageSrc: RRR,
+      imageSrc: RRRMain,
       liveUrl: 'https://rrr-secr.vercel.app/',
-      name: 'RRR - Lodging & Accommodation Console',
+      name: 'RRR – Railway Running Room',
       githubUrl: 'https://github.com/VinayVamshee/Railway_Running_Rooms.git',
-      description: 'A resource allocation engine that automates space logs, check-ins, capacity utilization indexes, and analytical exports for large operations hubs.',
-      tag: 'Internal Resource Allocation Platform',
+      description: 'A real-time railway accommodation management platform that digitizes crew check-ins, room allocation, occupancy monitoring, availability tracking, and operational analytics for railway Running Rooms.',
+      tag: 'Railway Running Room Management System',
       colorGlow: 'rgba(161, 0, 255, 0.08)',
-      moreImages: [
-        'https://i.ibb.co/58jbrDV/Screenshot-2024-12-12-at-12-57-48-PM.png',
-        'https://i.ibb.co/PjGRJR7/Screenshot-2024-12-12-at-12-58-20-PM.png'
+      highlights: [
+        'Live Room Allocation',
+        'Occupancy Analytics',
+        'Digital Running Rooms'
       ],
+      moreImages: [],
       fullDetails: {
-        intro: `The Lodging and Accommodation platform digitizes check-ins and room utilization tracking for large team operations.`,
+        intro: `A real-time railway accommodation management platform that digitizes crew check-ins, room allocation, occupancy monitoring, availability tracking, and operational analytics for railway Running Rooms.`,
         description: `Replacing traditional logs, it offers color-coded visual maps of rooms, bed availability, and real-time operational status.`,
         features: {
           userFeatures: [
@@ -342,17 +465,22 @@ export default function Projects() {
     },
     {
       id: 'Helmet',
-      imageSrc: Helmet,
+      imageSrc: HelmetMain,
       liveUrl: '#',
-      name: 'AI Object & Asset Detection',
+      name: 'AI Safety Compliance & Asset Inspection',
       githubUrl: '#',
-      description: 'A deep learning computer vision application using YOLOv8, Streamlit, and OCR to identify security compliance objects and perform automatic cataloging.',
-      tag: 'AI / Computer Vision',
+      description: 'A computer vision system built using YOLOv8 and OCR to automate safety compliance inspections by detecting protective equipment, identifying operational assets, and extracting textual information from images and videos in real time.',
+      tag: 'AI Safety Compliance & Asset Inspection',
       colorGlow: 'rgba(161, 0, 255, 0.08)',
+      highlights: [
+        'YOLOv8',
+        'OCR',
+        'Computer Vision'
+      ],
       moreImages: [],
       isInactive: true,
       fullDetails: {
-        intro: `AI Object Detection uses YOLOv8 weights to analyze video files and streams, identifying violations in real-time.`,
+        intro: `A computer vision system built using YOLOv8 and OCR to automate safety compliance inspections by detecting protective equipment, identifying operational assets, and extracting textual information from images and videos in real time.`,
         description: `It flags missing assets, zooms in on details, and uses OCR (EasyOCR) to read alphanumeric serial codes.`,
         features: {
           userFeatures: [
@@ -414,52 +542,48 @@ export default function Projects() {
   return (
     <div className="page-section">
       <div className="noise-overlay" />
-      <motion.div 
-        variants={containerVariants} 
-        initial="hidden" 
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
         animate="visible"
       >
         <motion.h2 className="section-title" variants={cardVariants}>
           Selected Case Studies
         </motion.h2>
         <motion.p className="section-subtitle" variants={cardVariants}>
-          Explore the architecture, technical challenges, and product impacts of platforms engineered for school ERPs, enterprise operations, and business operating consoles.
+          A collection of enterprise-grade products, operational platforms, and configurable business systems designed to solve real-world workflow, data management, and organizational challenges. These case studies highlight not just implementation, but product architecture, scalability, and system design decisions.
         </motion.p>
 
         <div className="projects-container">
           {websites.map((project) => (
-            <motion.div 
-              className="project-section-card" 
+            <motion.div
+              className="project-section-card"
               key={project.id}
               variants={cardVariants}
               onClick={() => handleNavigate(project)}
               style={{ cursor: 'pointer' }}
             >
               <div className="project-glow" style={{ background: `radial-gradient(circle, ${project.colorGlow} 0%, transparent 60%)` }} />
-              
+
               <div className="project-details-left">
                 <span className="project-label">{project.tag}</span>
                 <h3 className="project-name">{project.name}</h3>
                 <p className="project-desc-short">{project.description}</p>
-                
+
                 <div className="project-features-list">
-                  <div className="project-feat">
-                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M11.4669 3.72684C11.7175 3.91484 11.7686 4.27197 11.5806 4.52258L6.83059 10.8559C6.73778 10.9797 6.59628 11.0565 6.44211 11.0664C6.28794 11.0763 6.13651 11.0182 6.02647 10.9082L3.52647 8.40816C3.33121 8.2129 3.33121 7.89632 3.52647 7.70106C3.72173 7.50579 4.03831 7.50579 4.23358 7.70106L6.29903 9.76651L10.6712 3.93708C10.8592 3.68647 11.2163 3.63536 11.4669 3.72684Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
-                    </svg>
-                    <span>Full Production-Grade Product Architecture</span>
-                  </div>
-                  <div className="project-feat">
-                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M11.4669 3.72684C11.7175 3.91484 11.7686 4.27197 11.5806 4.52258L6.83059 10.8559C6.73778 10.9797 6.59628 11.0565 6.44211 11.0664C6.28794 11.0763 6.13651 11.0182 6.02647 10.9082L3.52647 8.40816C3.33121 8.2129 3.33121 7.89632 3.52647 7.70106C3.72173 7.50579 4.03831 7.50579 4.23358 7.70106L6.29903 9.76651L10.6712 3.93708C10.8592 3.68647 11.2163 3.63536 11.4669 3.72684Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
-                    </svg>
-                    <span>Integrated CRUD Databases & Auth Schemas</span>
-                  </div>
+                  {project.highlights && project.highlights.map((highlight, index) => (
+                    <div className="project-feat" key={index}>
+                      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.4669 3.72684C11.7175 3.91484 11.7686 4.27197 11.5806 4.52258L6.83059 10.8559C6.73778 10.9797 6.59628 11.0565 6.44211 11.0664C6.28794 11.0763 6.13651 11.0182 6.02647 10.9082L3.52647 8.40816C3.33121 8.2129 3.33121 7.89632 3.52647 7.70106C3.72173 7.50579 4.03831 7.50579 4.23358 7.70106L6.29903 9.76651L10.6712 3.93708C10.8592 3.68647 11.2163 3.63536 11.4669 3.72684Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
+                      </svg>
+                      <span>{highlight}</span>
+                    </div>
+                  ))}
                 </div>
 
                 <div className="project-cta-row">
                   <button className="btn-secondary" style={{ border: 'none', background: 'transparent', padding: '0', textDecoration: 'underline' }}>
-                    View Technical Case Study →
+                    Explore Product Architecture →
                   </button>
                 </div>
               </div>

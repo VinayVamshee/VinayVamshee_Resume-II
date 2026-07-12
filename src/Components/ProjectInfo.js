@@ -1,10 +1,18 @@
 import { useLocation, Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 export default function ProjectInfo() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const headingRef = useRef(null);
+
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (headingRef.current) {
+      headingRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   const location = useLocation();
@@ -39,14 +47,26 @@ export default function ProjectInfo() {
     }
   };
 
-  const allImages = [project.imageSrc, ...(project.moreImages || [])];
+  const allImages = [project.imageSrc, ...(project.moreImages || [])].filter(Boolean);
+
+  const handlePrev = (e) => {
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev === 0 ? allImages.length - 1 : prev - 1));
+  };
+
+  const handleNext = (e) => {
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev === allImages.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <div className="page-section" style={{ paddingTop: '120px' }}>
       <div className="noise-overlay" />
-      <Link to="/Projects" className="btn-secondary" style={{ marginBottom: '30px', border: '1px solid var(--border-glass)' }}>
-        ← Back to Showcase
-      </Link>
+      <div ref={headingRef}>
+        <Link to="/Projects" className="btn-secondary" style={{ marginBottom: '30px', border: '1px solid var(--border-glass)' }}>
+          ← Back to Showcase
+        </Link>
+      </div>
 
       <motion.div 
         variants={containerVariants}
@@ -86,8 +106,8 @@ export default function ProjectInfo() {
         <motion.div className="gallery-section" variants={itemVariants} style={{ marginBottom: '60px' }}>
           <h3 className="timeline-title" style={{ fontSize: '1.4rem', marginBottom: '24px' }}>Product Snapshots & Interfaces</h3>
           <div className="gallery-grid">
-            {allImages.filter(img => img).map((img, index) => (
-              <div className="gallery-card" key={index}>
+            {allImages.map((img, index) => (
+              <div className="gallery-card" key={index} onClick={() => { setIsOpen(true); setCurrentImageIndex(index); }} style={{ cursor: 'pointer' }}>
                 <img src={img} alt={`Slide ${index + 1}`} className="gallery-img" />
               </div>
             ))}
@@ -198,6 +218,108 @@ export default function ProjectInfo() {
           </motion.div>
         </div>
       </motion.div>
+
+      {/* Premium Lightbox Modal */}
+      {isOpen && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          backgroundColor: 'rgba(0, 0, 0, 0.92)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: 99999,
+          backdropFilter: 'blur(10px)',
+          transition: 'all 0.3s ease'
+        }} onClick={() => setIsOpen(false)}>
+          <button style={{
+            position: 'absolute',
+            top: '30px',
+            right: '30px',
+            background: 'rgba(255, 255, 255, 0.1)',
+            color: '#fff',
+            fontSize: '1.25rem',
+            cursor: 'pointer',
+            zIndex: 100000,
+            width: '45px',
+            height: '45px',
+            borderRadius: '50%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backdropFilter: 'blur(5px)',
+            border: '1px solid rgba(255, 255, 255, 0.1)'
+          }} onClick={() => setIsOpen(false)}>✕</button>
+
+          {allImages.length > 1 && (
+            <button style={{
+              position: 'absolute',
+              left: '30px',
+              background: 'rgba(255, 255, 255, 0.08)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: '50%',
+              width: '50px',
+              height: '50px',
+              color: '#fff',
+              fontSize: '1.8rem',
+              cursor: 'pointer',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              zIndex: 100000,
+              userSelect: 'none',
+              backdropFilter: 'blur(5px)'
+            }} onClick={handlePrev}>
+              ‹
+            </button>
+          )}
+
+          <img src={allImages[currentImageIndex]} alt="Zoomed View" style={{
+            maxWidth: '90%',
+            maxHeight: '85%',
+            objectFit: 'contain',
+            borderRadius: '8px',
+            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.8)'
+          }} onClick={(e) => e.stopPropagation()} />
+
+          {allImages.length > 1 && (
+            <button style={{
+              position: 'absolute',
+              right: '30px',
+              background: 'rgba(255, 255, 255, 0.08)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: '50%',
+              width: '50px',
+              height: '50px',
+              color: '#fff',
+              fontSize: '1.8rem',
+              cursor: 'pointer',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              zIndex: 100000,
+              userSelect: 'none',
+              backdropFilter: 'blur(5px)'
+            }} onClick={handleNext}>
+              ›
+            </button>
+          )}
+
+          <div style={{
+            position: 'absolute',
+            bottom: '20px',
+            color: 'rgba(255, 255, 255, 0.6)',
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.9rem',
+            userSelect: 'none'
+          }}>
+            {currentImageIndex + 1} / {allImages.length}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
