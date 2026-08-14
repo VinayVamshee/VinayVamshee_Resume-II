@@ -1,18 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { FaLinkedin, FaGithub, FaEnvelope, FaFileAlt } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 import vinayvamsheeResume from './Vinay Vamshee Resume.pdf';
 
 export default function Footer() {
+  const form = useRef();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+    setIsSending(true);
+
+    emailjs.sendForm('service_poxj9kb', 'template_225lx4r', form.current, 'MMiGPMm9m6ZYRwisE')
+      .then((result) => {
+        console.log(result.text);
+        setSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 3000);
+      }, (error) => {
+        console.log(error.text);
+        alert('Failed to send email. Please try again.');
+      })
+      .finally(() => {
+        setIsSending(false);
+      });
   };
 
   return (
@@ -63,11 +78,12 @@ export default function Footer() {
         </div>
 
         <div className="contact-form-container">
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form ref={form} className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label className="form-label">Your Name</label>
               <input 
                 type="text" 
+                name="from_name"
                 className="form-input" 
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -79,6 +95,7 @@ export default function Footer() {
               <label className="form-label">Email Address</label>
               <input 
                 type="email" 
+                name="reply_to"
                 className="form-input" 
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -89,6 +106,7 @@ export default function Footer() {
             <div className="form-group">
               <label className="form-label">Message</label>
               <textarea 
+                name="message"
                 className="form-input" 
                 rows="4" 
                 value={formData.message}
@@ -98,8 +116,8 @@ export default function Footer() {
               />
             </div>
             
-            <button type="submit" className="form-submit-btn">
-              {submitted ? 'Message Sent ✓' : 'Send Message'}
+            <button type="submit" className="form-submit-btn" disabled={isSending}>
+              {isSending ? 'Sending...' : submitted ? 'Message Sent ✓' : 'Send Message'}
             </button>
           </form>
         </div>
