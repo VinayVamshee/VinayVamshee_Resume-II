@@ -35,23 +35,20 @@ import RRRMain from './Images/RRR-Page.png';
 import HelmetMain from './Images/Helmet.png';
 import MaguvasCover from './Images/Screenshot 2025-06-11 at 11.59.16.png';
 
-export default function Projects() {
-  const navigate = useNavigate();
-
-  const [websites] = useState([
+export const projectsData = [
     {
       id: 'SSS',
       imageSrc: SSSMain,
       liveUrl: 'https://sss-school-scholastic-system.vercel.app/',
       name: 'School Scholastic System (SSS)',
       githubUrl: 'https://github.com/VinayVamshee/SSS-School-Scholastic-System.git',
-      description: 'A configurable, metadata-driven School ERP and Business Operating Platform that digitizes the complete academic lifecycle from admissions and student records to examinations, fee management, report cards, and institutional administration without relying on hardcoded workflows.',
+      description: 'A multi-tenant, metadata-driven School ERP engineered with plan-based feature gating, granular permission sets, JWT authentication, rate limiting, and a layered server architecture spanning over 88,000 lines of code and 213 modular REST endpoints.',
       tag: 'Metadata-Driven Multi-Tenant School ERP',
       colorGlow: 'rgba(161, 0, 255, 0.08)',
       highlights: [
-        'Metadata Driven Architecture',
-        'Multi-Tenant SaaS',
-        'Dynamic Forms Engine'
+        'Multi-Tenant Layered SaaS',
+        '88,000+ Lines of Code',
+        '213 Modular REST Endpoints'
       ],
       moreImages: [
         SSSLogin,
@@ -64,7 +61,7 @@ export default function Projects() {
         SSSDev,
       ],
       fullDetails: {
-        intro: `School Scholastic System (SSS) is a modern enterprise-grade SaaS platform built using a metadata-driven architecture. Instead of developing rigid modules for every requirement, the platform allows schools to configure entities, academic structures, forms, workflows, validations, and business rules dynamically from the backend, enabling multiple institutions to operate on the same scalable platform.`,
+        intro: `School Scholastic System (SSS) is an enterprise-grade multi-tenant SaaS platform built with a layered architecture spanning 88,000+ lines of code and 213 REST endpoints. Built on React, Node/Express, and MongoDB, it features plan-based feature gating, permission sets, JWT authentication, and metadata-driven dynamic forms that eliminate hardcoded workflows.`,
         description: `Unlike traditional school management systems that rely on hardcoded modules, SSS provides a highly configurable platform where administrators can manage students, classes, academic years, examinations, fees, admissions, promotions, attendance, report cards, and organizational settings from a centralized dashboard.`,
         features: {
           userFeatures: [
@@ -148,13 +145,13 @@ export default function Projects() {
       liveUrl: '',
       name: 'ABC – Advanced Business Console',
       githubUrl: 'https://github.com/VinayVamshee/Project-ABC.git',
-      description: 'ABC (Advanced Business Console) is a configurable Business Operating Platform (BOP) that enables organizations to build custom business workflows, entities, inventory systems, transaction engines, ledgers, billing processes, and operational modules without redesigning the database or backend architecture.',
+      description: 'A production inventory, billing, and ledger operating platform built for a live jewellery retail client. Features dynamic barcode label printing, live metal rates, flexible part-payments, and automated Excel/PDF accounting exports with zero database schema redesign.',
       tag: 'Metadata-Driven Business Operating Platform',
       colorGlow: 'rgba(0, 242, 254, 0.08)',
       highlights: [
-        'Business Operating Platform',
-        'Dynamic Entity Engine',
-        'Configurable Transactions'
+        'Live Retail Jewellery System',
+        'Barcode & Part-Payment Engine',
+        'Custom Ledger & Backup Platform'
       ],
       moreImages: [
         ABCHome,
@@ -163,7 +160,7 @@ export default function Projects() {
         ABCSettings,
       ],
       fullDetails: {
-        intro: `ABC (Advanced Business Console) is a configurable Business Operating Platform (BOP) that enables organizations to build custom business workflows, entities, inventory systems, transaction engines, ledgers, billing processes, and operational modules without redesigning the database or backend architecture.`,
+        intro: `ABC (Advanced Business Console) is a production-deployed Business Operating Platform (BOP) built for a commercial jewellery business. It unifies inventory control, barcode generation, dynamic metal rates, billing, multi-mode part payments, customer ledgers, and automated data backups into a single metadata-driven system without requiring database schema redesigns.`,
         description: `By eliminating hardcoded modules, ABC acts as a digital operating system for small-to-medium retail and service businesses. It provides complete control over purchasing, sales, payments, customer registers, and ledger tracking.`,
         features: {
           userFeatures: [
@@ -277,7 +274,7 @@ export default function Projects() {
           auth: 'JWT Auth',
           deployment: {
             frontend: 'Vercel',
-            backend: 'Render'
+            backend: 'Cloud Hosting'
           }
         },
         timeline: [
@@ -336,7 +333,7 @@ export default function Projects() {
           auth: 'JWT Auth',
           deployment: {
             frontend: 'Vercel',
-            backend: 'Render'
+            backend: 'Cloud Hosting'
           }
         },
         timeline: [
@@ -412,20 +409,21 @@ export default function Projects() {
     {
       id: 'RRR-SECR',
       imageSrc: RRRMain,
-      liveUrl: 'https://rrr-secr.vercel.app/',
+      liveUrl: '#',
       name: 'RRR – Railway Running Room',
       githubUrl: 'https://github.com/VinayVamshee/Railway_Running_Rooms.git',
-      description: 'A real-time railway accommodation management platform that digitizes crew check-ins, room allocation, occupancy monitoring, availability tracking, and operational analytics for railway Running Rooms.',
-      tag: 'Railway Running Room Management System',
+      description: 'An operational accommodation platform engineered for a railway division that completely replaced legacy paper registers during its active production run, recording over 3,000+ real crew entries before being retired out of commission.',
+      tag: 'Railway Running Room System (Retired Production System)',
       colorGlow: 'rgba(161, 0, 255, 0.08)',
       highlights: [
-        'Live Room Allocation',
-        'Occupancy Analytics',
-        'Digital Running Rooms'
+        '3,000+ Operational Entries Recorded',
+        'Digitized Paper Register Logs',
+        'Production System (Retired)'
       ],
       moreImages: [],
+      isInactive: true,
       fullDetails: {
-        intro: `A real-time railway accommodation management platform that digitizes crew check-ins, room allocation, occupancy monitoring, availability tracking, and operational analytics for railway Running Rooms.`,
+        intro: `RRR was deployed as an operational accommodation platform for a railway division to digitize crew check-ins, room allocation, and occupancy tracking. It successfully replaced physical paper registers and recorded over 3,000+ live operational entries during its active deployment before being retired out of commission.`,
         description: `Replacing traditional logs, it offers color-coded visual maps of rooms, bed availability, and real-time operational status.`,
         features: {
           userFeatures: [
@@ -467,20 +465,20 @@ export default function Projects() {
       id: 'Helmet',
       imageSrc: HelmetMain,
       liveUrl: '#',
-      name: 'AI Safety Compliance & Asset Inspection',
+      name: 'Helmet & License Plate Detection (Patent 202541127889)',
       githubUrl: '#',
-      description: 'A computer vision system built using YOLOv8 and OCR to automate safety compliance inspections by detecting protective equipment, identifying operational assets, and extracting textual information from images and videos in real time.',
-      tag: 'AI Safety Compliance & Asset Inspection',
+      description: 'Co-inventor of Indian Patent Application 202541127889 (Published Jan 2026). Developed the architecture, model pipeline, and code using YOLOv8 and EasyOCR to automate protective safety equipment detection and license plate text extraction in real time.',
+      tag: 'Published Indian Patent • Computer Vision & OCR',
       colorGlow: 'rgba(161, 0, 255, 0.08)',
       highlights: [
-        'YOLOv8',
-        'OCR',
-        'Computer Vision'
+        'Official Indian Patent (202541127889)',
+        'YOLOv8 & EasyOCR Pipeline',
+        'Real-Time Compliance Automation'
       ],
       moreImages: [],
       isInactive: true,
       fullDetails: {
-        intro: `A computer vision system built using YOLOv8 and OCR to automate safety compliance inspections by detecting protective equipment, identifying operational assets, and extracting textual information from images and videos in real time.`,
+        intro: `Co-invented and engineered a published Indian Patent system (Application 202541127889, Published Jan 2026) using YOLOv8 and EasyOCR to automate industrial safety compliance, detecting personal protective equipment (helmets) and extracting vehicle plate numbers in real time.`,
         description: `It flags missing assets, zooms in on details, and uses OCR (EasyOCR) to read alphanumeric serial codes.`,
         features: {
           userFeatures: [
@@ -516,7 +514,11 @@ export default function Projects() {
         explanation: `This project is designed as an automated safety compliance solution, reducing manual inspection labor.`
       }
     }
-  ]);
+];
+
+export default function Projects() {
+  const navigate = useNavigate();
+  const [websites] = useState(projectsData);
 
   const handleNavigate = (projectData) => {
     navigate(`/project/${projectData.id}`, { state: { project: projectData } });

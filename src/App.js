@@ -5,21 +5,53 @@ import ReactGA from 'react-ga4';
 import Lenis from 'lenis';
 
 import Menu from './Components/Menu';
+import FloatingTechGalaxy from './Components/FloatingTechGalaxy';
 import Home from './Components/Home';
 import About from './Components/About';
 import Projects from './Components/Projects';
 import ProjectInfo from './Components/ProjectInfo';
 import Footer from './Components/Footer';
 
-const TRACKING_ID = 'G-4WJD35TY5L';
-ReactGA.initialize(TRACKING_ID);
+const TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID;
+if (TRACKING_ID) {
+  ReactGA.initialize(TRACKING_ID);
+}
 
 function AnalyticsTracker() {
   const location = useLocation();
 
   useEffect(() => {
-    ReactGA.send({ hitType: "pageview", page: location.pathname });
+    if (TRACKING_ID) {
+      ReactGA.send({ hitType: "pageview", page: location.pathname });
+    }
   }, [location]);
+
+  return null;
+}
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Reset Lenis smooth scroll target and velocity immediately
+    if (window.__lenis) {
+      window.__lenis.scrollTo(0, { immediate: true });
+    }
+
+    // Reset native browser window scroll immediately
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant',
+    });
+
+    if (document.documentElement) {
+      document.documentElement.scrollTop = 0;
+    }
+    if (document.body) {
+      document.body.scrollTop = 0;
+    }
+  }, [pathname]);
 
   return null;
 }
@@ -35,6 +67,8 @@ function App() {
       smoothWheel: true,
     });
 
+    window.__lenis = lenis;
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -44,6 +78,7 @@ function App() {
 
     return () => {
       lenis.destroy();
+      delete window.__lenis;
     };
   }, []);
 
@@ -51,7 +86,9 @@ function App() {
     <div className="App">
 
       <Router>
+        <ScrollToTop />
         <AnalyticsTracker />
+        <FloatingTechGalaxy />
         <Menu />
         <Routes>
           <Route path='/' exact element={<Home />} />

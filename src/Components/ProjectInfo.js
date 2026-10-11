@@ -1,11 +1,13 @@
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { projectsData } from './Projects';
 
 export default function ProjectInfo() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const headingRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (headingRef.current) {
@@ -15,8 +17,9 @@ export default function ProjectInfo() {
     }
   }, []);
 
+  const { id } = useParams();
   const location = useLocation();
-  const { project } = location.state || {};
+  const project = location.state?.project || projectsData.find(p => p.id === id);
 
   if (!project) {
     return (
@@ -25,7 +28,14 @@ export default function ProjectInfo() {
         <p className="section-subtitle" style={{ margin: '0 auto 40px auto' }}>
           Please go back to the catalog to select a valid product engineering case study.
         </p>
-        <Link to="/Projects" className="btn-primary">Back to Catalog</Link>
+        <button 
+          type="button" 
+          onClick={() => navigate('/Projects')} 
+          className="btn-primary" 
+          style={{ cursor: 'pointer', pointerEvents: 'auto' }}
+        >
+          Back to Catalog
+        </button>
       </div>
     );
   }
@@ -62,10 +72,24 @@ export default function ProjectInfo() {
   return (
     <div className="page-section" style={{ paddingTop: '120px' }}>
       <div className="noise-overlay" />
-      <div ref={headingRef}>
-        <Link to="/Projects" className="btn-secondary" style={{ marginBottom: '30px', border: '1px solid var(--border-glass)' }}>
+      <div ref={headingRef} style={{ position: 'relative', zIndex: 100, marginBottom: '30px', pointerEvents: 'auto' }}>
+        <button
+          type="button"
+          onClick={() => navigate('/Projects')}
+          className="btn-secondary"
+          style={{
+            border: '1px solid var(--border-glass)',
+            cursor: 'pointer',
+            pointerEvents: 'auto',
+            position: 'relative',
+            zIndex: 100,
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px'
+          }}
+        >
           ← Back to Showcase
-        </Link>
+        </button>
       </div>
 
       <motion.div 
@@ -281,6 +305,7 @@ export default function ProjectInfo() {
             maxWidth: '90%',
             maxHeight: '85%',
             objectFit: 'contain',
+            opacity: 1,
             borderRadius: '8px',
             boxShadow: '0 20px 50px rgba(0, 0, 0, 0.8)'
           }} onClick={(e) => e.stopPropagation()} />

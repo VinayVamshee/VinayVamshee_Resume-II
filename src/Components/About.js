@@ -22,29 +22,29 @@ export default function About() {
 
   const skillGroups = [
     {
-      title: 'Languages & CRM',
+      title: 'Languages & Core',
       icon: <FaCode />,
       skills: ['Java', 'JavaScript (ES6+)', 'Apex', 'Python', 'HTML5/CSS3']
     },
     {
       title: 'Frontend & UI',
       icon: <FaCode />,
-      skills: ['React', 'Lightning Web Components (LWC)', 'Redux', 'Framer Motion', 'Bootstrap']
+      skills: ['React', 'Lightning Web Components (LWC)', 'TanStack Query', 'Framer Motion', 'Bootstrap']
     },
     {
       title: 'Backend & DB',
       icon: <FaServer />,
-      skills: ['Node.js', 'Express.js', 'REST APIs', 'JWT Auth', 'Redis', 'MongoDB']
+      skills: ['Node.js', 'Express.js', 'REST APIs', 'JWT Auth', 'MongoDB', 'Mongoose']
     },
     {
       title: 'Architecture & Cloud',
       icon: <FaDatabase />,
-      skills: ['SaaS Design', 'Salesforce CRM', 'Dynamic Form Builders', 'Metadata Driven Systems']
+      skills: ['Multi-Tenant SaaS', 'Metadata Driven Systems', 'Service Cloud', 'Salesforce CRM']
     },
     {
-      title: 'Tools & DevOps',
+      title: 'AI & Modern Tools',
       icon: <FaTools />,
-      skills: ['Git', 'GitHub', 'Vercel', 'Render', 'Streamlit', 'Notion']
+      skills: ['OpenAI GPT-4o', 'LangChain', 'YOLOv8', 'Git / GitHub', 'Vercel']
     }
   ];
 
@@ -60,35 +60,65 @@ export default function About() {
           Who I Am & What I Architect
         </motion.h2>
         <motion.p className="section-subtitle" variants={itemVariants}>
-          I'm Pechetti Vinay Vamshee, a Computer Science graduate from VIT Vellore and currently a Salesforce Developer. I specialize in building production-grade software platforms, corporate automation tools, and dynamic metadata architectures.
+          Full-Stack Product Engineer and Solutions Architect specializing in metadata-driven web platforms, enterprise architectures, and configurable business systems that replace rigid software with dynamic tools.
         </motion.p>
 
         <div className="about-grid">
           {/* Bio Column */}
           <motion.div className="about-bio" variants={itemVariants}>
             <p>
-              Driven by a deep passion for digital craftsmanship and technical excellence, I specialize in full-stack engineering utilizing the <strong>MERN stack</strong>, <strong>Salesforce Development (Apex/LWC)</strong>, and <strong>Java</strong>.
+              Driven by digital craftsmanship and technical precision, I specialize in full-stack web engineering utilizing <strong>React, Node.js, Express, and MongoDB</strong>, alongside enterprise cloud systems with <strong>Apex, LWC, and Service Cloud</strong>.
             </p>
             <p>
-              My work spans from building custom ERP solutions for educational centers to deploying real-time asset management and logging systems for enterprise clients. These systems have a direct operational impact, managing hundreds of active users and processing vital transaction records daily.
+              My work spans from architecting multi-tenant SaaS ERP platforms to building commercial inventory and ledger engines for retail clients, as well as operational logging systems for railway divisions that replaced manual paper registers.
             </p>
             <p>
-              I design for flexibility, building metadata-driven dashboards and custom schema layers that replace rigid structures. I believe software should grow alongside the business without demanding constant updates.
+              I design for adaptability—building metadata-driven architectures and schema layers that allow business workflows and data structures to expand smoothly as organizations scale.
             </p>
           </motion.div>
 
           {/* Education / Career Timeline */}
           <motion.div className="about-timeline" variants={itemVariants}>
-            <h3 className="timeline-title">Academic & Progression</h3>
+            <h3 className="timeline-title">Career & Achievements</h3>
             <div className="timeline-wrapper">
 
               <div className="timeline-item">
                 <div className="timeline-dot" />
                 <div className="timeline-date">2025 - Present</div>
                 <div className="timeline-card">
-                  <div className="timeline-inst">Salesforce Developer</div>
-                  <div className="timeline-degree">Cloud Systems & Enterprise Development</div>
-                  <span className="timeline-grade">2x Certified Salesforce Developer</span>
+                  <div className="timeline-inst">Enterprise Salesforce Developer</div>
+                  <div className="timeline-degree">Cloud Systems, Apex, LWC & Service Cloud</div>
+                  <span className="timeline-grade">Salesforce Certified Platform Administrator</span>
+                </div>
+              </div>
+
+              <div className="timeline-item">
+                <div className="timeline-dot" />
+                <div className="timeline-date">Mar 2026</div>
+                <div className="timeline-card">
+                  <div className="timeline-inst">Enterprise AI Hackathon Winner</div>
+                  <div className="timeline-degree">1st Place Winner & Regional Finalist</div>
+                  <span className="timeline-grade">Smart Data Pipeline Debugger (GPT-4o, LangChain, Streamlit)</span>
+                </div>
+              </div>
+
+              <div className="timeline-item">
+                <div className="timeline-dot" />
+                <div className="timeline-date">Jan 2026</div>
+                <div className="timeline-card">
+                  <div className="timeline-inst">Published Patent Co-Inventor</div>
+                  <div className="timeline-degree">Indian Patent Application 202541127889</div>
+                  <span className="timeline-grade">Helmet & License Plate Detection using YOLO & OCR</span>
+                </div>
+              </div>
+
+              <div className="timeline-item">
+                <div className="timeline-dot" />
+                <div className="timeline-date">2025</div>
+                <div className="timeline-card">
+                  <div className="timeline-inst">Conference Research Co-Author</div>
+                  <div className="timeline-degree">International Conference on Electronics, AI and Computing</div>
+                  <span className="timeline-grade">Automated Table Data Extraction using OCR</span>
                 </div>
               </div>
 
@@ -96,29 +126,9 @@ export default function About() {
                 <div className="timeline-dot" />
                 <div className="timeline-date">2021 - 2025</div>
                 <div className="timeline-card">
-                  <div className="timeline-inst">Vellore Institute of Technology</div>
+                  <div className="timeline-inst">Vellore Institute of Technology (VIT)</div>
                   <div className="timeline-degree">B.Tech in Computer Science and Engineering</div>
-                  <span className="timeline-grade">CGPA: 8.08 / 10 (Graduated 2025)</span>
-                </div>
-              </div>
-
-              <div className="timeline-item">
-                <div className="timeline-dot" />
-                <div className="timeline-date">2020 - 2021</div>
-                <div className="timeline-card">
-                  <div className="timeline-inst">Brilliant Public School, Bilaspur</div>
-                  <div className="timeline-degree">Class 12 (CBSE Board)</div>
-                  <span className="timeline-grade">Grade: 80.4%</span>
-                </div>
-              </div>
-
-              <div className="timeline-item">
-                <div className="timeline-dot" />
-                <div className="timeline-date">2018 - 2019</div>
-                <div className="timeline-card">
-                  <div className="timeline-inst">Brilliant Public School, Bilaspur</div>
-                  <div className="timeline-degree">Class 10 (CBSE Board)</div>
-                  <span className="timeline-grade">Grade: 84%</span>
+                  <span className="timeline-grade">CGPA: 8.08 / 10 • Graduated 2025</span>
                 </div>
               </div>
 

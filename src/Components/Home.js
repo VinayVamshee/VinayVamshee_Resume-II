@@ -50,7 +50,7 @@ export default function Home() {
           </motion.h1>
           
           <motion.p className="hero-desc" variants={itemVariants}>
-            Hi, I'm <strong>Vinay Vamshee</strong>. I build products around business workflows, configurable architectures, metadata-driven systems, and scalable enterprise platforms instead of simple CRUD applications.
+            Engineering configurable business platforms, metadata-driven architectures, and scalable full-stack software. I turn complex enterprise workflows into clean, high-performance digital products.
           </motion.p>
           
           <motion.div className="hero-buttons" variants={itemVariants}>
@@ -71,15 +71,15 @@ export default function Home() {
           <motion.div className="hero-stats" variants={itemVariants}>
             <div className="stat-item">
               <span className="stat-num cyan">7+</span>
-              <span className="stat-label">Active Products</span>
+              <span className="stat-label">Production Platforms</span>
             </div>
             <div className="stat-item">
-              <span className="stat-num">100+</span>
-              <span className="stat-label">Daily Live Users</span>
+              <span className="stat-num">1</span>
+              <span className="stat-label">Published Patent</span>
             </div>
             <div className="stat-item">
-              <span className="stat-num purple">5K+</span>
-              <span className="stat-label">Monthly Visits</span>
+              <span className="stat-num purple">88K+</span>
+              <span className="stat-label">Lines Architected</span>
             </div>
           </motion.div>
         </div>
@@ -90,12 +90,33 @@ export default function Home() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
         >
-          <div className="portrait-glow-container">
-            <img src={vinayvamshee} alt="Vinay Vamshee" className="portrait-img" />
-            <div className="portrait-ambient-glow" />
+          {/* Out of the Box Portrait */}
+          <div className="out-of-box-wrapper" id="home-portrait-anchor">
+            {/* Offset tilted border outline */}
+            <div className="box-frame-outline" />
+
+            {/* Main tilted colored card */}
+            <div className="box-frame-card">
+              <div className="box-grid-lines" />
+              <div className="box-glow-corner" />
+            </div>
+
+            {/* Popping-out person container */}
+            <div className="box-person-container">
+              <img 
+                src={vinayvamshee} 
+                alt="Vinay Vamshee" 
+                className="box-person-img"
+                draggable="false"
+              />
+            </div>
+
+            {/* Ambient radial glow */}
+            <div className="box-ambient-glow" />
           </div>
         </motion.div>
       </motion.div>
     </div>
   );
 }
+

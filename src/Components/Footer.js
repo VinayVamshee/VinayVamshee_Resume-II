@@ -6,16 +6,39 @@ import vinayvamsheeResume from './Vinay Vamshee Resume.pdf';
 export default function Footer() {
   const form = useRef();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [honeypot, setHoneypot] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [isSending, setIsSending] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // 1. Silent bot trap: reject spam bots filling hidden inputs
+    if (honeypot) {
+      setSubmitted(true);
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setSubmitted(false), 3000);
+      return;
+    }
+
+    // 2. Client-side rate limiting: 30 second cooldown
+    const lastSent = sessionStorage.getItem('last_email_sent_time');
+    const now = Date.now();
+    if (lastSent && now - parseInt(lastSent, 10) < 30000) {
+      alert('Please wait a few seconds before sending another message.');
+      return;
+    }
+
     setIsSending(true);
 
-    emailjs.sendForm('service_poxj9kb', 'template_225lx4r', form.current, 'MMiGPMm9m6ZYRwisE')
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+    emailjs.sendForm(serviceId, templateId, form.current, publicKey)
       .then((result) => {
         console.log(result.text);
+        sessionStorage.setItem('last_email_sent_time', Date.now().toString());
         setSubmitted(true);
         setFormData({ name: '', email: '', message: '' });
         setTimeout(() => {
@@ -79,6 +102,16 @@ export default function Footer() {
 
         <div className="contact-form-container">
           <form ref={form} className="contact-form" onSubmit={handleSubmit}>
+            {/* Honeypot field for bot protection */}
+            <input 
+              type="text" 
+              name="bot_field" 
+              value={honeypot} 
+              onChange={(e) => setHoneypot(e.target.value)} 
+              style={{ display: 'none' }} 
+              tabIndex="-1" 
+              autoComplete="off" 
+            />
             <div className="form-group">
               <label className="form-label">Your Name</label>
               <input 
