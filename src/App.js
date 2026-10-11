@@ -12,7 +12,7 @@ import Projects from './Components/Projects';
 import ProjectInfo from './Components/ProjectInfo';
 import Footer from './Components/Footer';
 
-const TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID;
+const TRACKING_ID = process.env.TRACKING_ID;
 if (TRACKING_ID) {
   ReactGA.initialize(TRACKING_ID);
 }
